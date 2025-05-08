@@ -3,7 +3,9 @@ import "./App.css"
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Home from "./Components/Home.jsx";
-
+import OurApproach from "./Components/Approach.jsx";
+import Team from "./Components/Team.jsx";
+import Services from "./Components/Services.jsx";
 import HomePage from "./Pages/HomePage.jsx";
 import ContactForm from "./Components/form.jsx";
 import WhyChooseUs from "./Components/Choose.jsx";
@@ -14,9 +16,13 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Home />
+        <Services />
         <WhyChooseUs />
+        <Team/>
+        <OurApproach/>
         <ContactForm />
-        
+
+
 
      
         <Routes>
