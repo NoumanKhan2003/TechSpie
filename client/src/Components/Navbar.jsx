@@ -23,7 +23,7 @@ import {
   PermContactCalendar as ContactIcon,
 } from "@mui/icons-material";
 
-import logo from "../Assets/techspie logo.png";
+import logo from "../Assets/techspie_logo-removebg-preview.png";
 
 const Navbar = () => {
   const [state, setState] = React.useState({ right: false });
@@ -196,6 +196,10 @@ const Navbar = () => {
         color: "white",
         py: 1,
         borderBottom: "1px solid black",
+        // position: "fixed",
+        // top: 0,
+        // width: "100%",
+        // zIndex: 1100,
       }}
     >
       {/* Logo with Link */}

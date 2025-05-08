@@ -17,7 +17,7 @@ import {
   Email,
   LocationOn,
 } from "@mui/icons-material";
-import logo from "../Assets/Techspie logo.png";
+import logo from "../Assets/techspie_logo-removebg-preview.png";
 
 const Footer = () => {
   const theme = useTheme();
@@ -57,7 +57,7 @@ const Footer = () => {
           >
             <Box
               sx={{
-                height: { md: "4.4rem", xs: "5rem" },
+                height: { md: "5.5rem", xs: "5rem" },
                 width: { md: "16rem", xs: "19rem" },
               }}
             >
