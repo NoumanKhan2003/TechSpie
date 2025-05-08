@@ -32,7 +32,6 @@ import {
 
 import logo from "../Assets/techspie_logo-removebg-preview.png";
 
-// Hide navbar on scroll down
 function HideOnScroll(props) {
   const { children } = props;
   const trigger = useScrollTrigger({
@@ -51,7 +50,7 @@ const Navbar = (props) => {
   const [state, setState] = React.useState({ right: false });
   const location = useLocation();
 
-  // Check if the user has scrolled
+
   const [scrolled, setScrolled] = React.useState(false);
 
   React.useEffect(() => {
@@ -87,7 +86,7 @@ const Navbar = (props) => {
     { text: "Services", icon: <ServicesIcon />, path: "/services" },
   ];
 
-  // Handle scroll to contact form
+
   const handleScrollToContact = (event) => {
     event.preventDefault();
     const contactForm = document.getElementById("contact");
