@@ -1,21 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   const handleChange = (e) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Thank you, ${formData.name}! We will get back to you soon.`);
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <div className="max-w-lg mx-auto mt-12 bg-white shadow-md rounded-lg p-6">
-      <h2 className="text-xl font-semibold text-center mb-6 text-purple-700">Get in Touch</h2>
+    <div
+      id="contact"
+      className="max-w-lg mx-auto mt-12 bg-white shadow-md rounded-lg p-6"
+    >
+      <h2 className="text-xl font-semibold text-center mb-6 text-purple-700">
+        Get in Touch
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -56,7 +65,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-
-
-
-

@@ -1,17 +1,15 @@
-import React from 'react';
+import React from "react";
 
 const WhyChooseUs = () => {
   return (
-    <div className="py-20 bg-gradient-to-r from-purple-900 to-rgb(138,12,173)">
+    <div className="py-20 bg-gradient-to-br from-violet-600 to-violet-200">
       <div className="container mx-auto text-center text-white">
-       
-        <h2 className="text-4xl font-semibold mb-4">
-          Why Choose Us
-        </h2>
+        <h2 className="text-4xl font-semibold mb-4">Why Choose Us</h2>
 
         {/* Subheading */}
         <p className="text-lg mb-12 px-4">
-          Discover the key reasons why our software solutions stand out, and how we can help your business scale and succeed.
+          Discover the key reasons why our software solutions stand out, and how
+          we can help your business scale and succeed.
         </p>
 
         {/* Key Features */}
@@ -36,7 +34,8 @@ const WhyChooseUs = () => {
             </div>
             <h3 className="text-xl font-semibold mb-4">Custom Solutions</h3>
             <p className="text-gray-700">
-              We tailor every solution to meet your specific business needs with high-quality, custom-built applications.
+              We tailor every solution to meet your specific business needs with
+              high-quality, custom-built applications.
             </p>
           </div>
 
@@ -60,7 +59,8 @@ const WhyChooseUs = () => {
             </div>
             <h3 className="text-xl font-semibold mb-4">Scalable & Reliable</h3>
             <p className="text-gray-700">
-              Our solutions grow with your business, ensuring performance, scalability, and reliability at every stage.
+              Our solutions grow with your business, ensuring performance,
+              scalability, and reliability at every stage.
             </p>
           </div>
 
@@ -84,15 +84,13 @@ const WhyChooseUs = () => {
             </div>
             <h3 className="text-xl font-semibold mb-4">Expert Support</h3>
             <p className="text-gray-700">
-              Our team of experts is available for continuous support, ensuring you get the most from our solutions.
+              Our team of experts is available for continuous support, ensuring
+              you get the most from our solutions.
             </p>
           </div>
         </div>
-
-       
-        </div>
       </div>
-    
+    </div>
   );
 };
 
