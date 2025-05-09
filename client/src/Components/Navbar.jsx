@@ -50,7 +50,6 @@ const Navbar = (props) => {
   const [state, setState] = React.useState({ right: false });
   const location = useLocation();
 
-
   const [scrolled, setScrolled] = React.useState(false);
 
   React.useEffect(() => {
@@ -85,7 +84,6 @@ const Navbar = (props) => {
     { text: "Network", icon: <PublicIcon />, path: "/network" },
     { text: "Services", icon: <ServicesIcon />, path: "/services" },
   ];
-
 
   const handleScrollToContact = (event) => {
     event.preventDefault();
@@ -125,22 +123,25 @@ const Navbar = (props) => {
             textTransform: "none",
             position: "relative",
             overflow: "hidden",
-            "&::after": {
+            transition: "all 0.3s ease",
+            "&::before": {
               content: '""',
               position: "absolute",
               bottom: 0,
               left: 0,
               width: "100%",
               height: "3px",
-              backgroundColor: "rgb(138, 12, 173)",
+              background:
+                "linear-gradient(90deg, rgb(138, 12, 173), rgb(178, 77, 212))",
               transform:
                 location.pathname === item.path ? "scaleX(1)" : "scaleX(0)",
-              transformOrigin: "bottom left",
-              transition: "transform 0.3s ease-out",
+              transformOrigin: "left",
+              transition: "transform 0.3s ease",
             },
             "&:hover": {
               backgroundColor: "transparent",
-              "&::after": {
+              color: "rgb(138, 12, 173)",
+              "&::before": {
                 transform: "scaleX(1)",
               },
             },
@@ -287,10 +288,11 @@ const Navbar = (props) => {
         position="fixed"
         elevation={scrolled ? 4 : 0}
         sx={{
-          backgroundColor: "white",
+          backgroundColor: "rgba(255, 255, 255, 0.95)",
+          backdropFilter: "blur(10px)",
           transition: "all 0.3s ease",
-          boxShadow: scrolled ? "0 2px 10px rgba(0,0,0,0.1)" : "none",
-          borderBottom: scrolled ? "none" : "1px solid rgba(0,0,0,0.1)",
+          boxShadow: scrolled ? "0 2px 20px rgba(138, 12, 173, 0.1)" : "none",
+          borderBottom: scrolled ? "none" : "1px solid rgba(138, 12, 173, 0.1)",
         }}
       >
         <Container maxWidth="xl">
@@ -323,20 +325,20 @@ const Navbar = (props) => {
                 onClick={handleScrollToContact}
                 variant="contained"
                 sx={{
-                  backgroundColor: "rgb(138, 12, 173)",
+                  background:
+                    "linear-gradient(45deg, rgb(138, 12, 173), rgb(178, 77, 212))",
                   color: "white",
                   fontWeight: "bold",
                   borderRadius: "30px",
                   px: "2rem",
-                  py: "0.6rem",
+                  py: "0.8rem",
                   textTransform: "none",
                   fontSize: "1rem",
                   transition: "all 0.3s ease",
-                  boxShadow: "0 4px 10px rgba(138, 12, 173, 0.3)",
+                  boxShadow: "0 4px 15px rgba(138, 12, 173, 0.2)",
                   "&:hover": {
-                    backgroundColor: "rgb(122, 10, 152)",
                     transform: "translateY(-2px)",
-                    boxShadow: "0 6px 15px rgba(138, 12, 173, 0.4)",
+                    boxShadow: "0 6px 20px rgba(138, 12, 173, 0.3)",
                   },
                   "&:active": {
                     transform: "translateY(0)",

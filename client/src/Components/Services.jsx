@@ -1,49 +1,74 @@
-import React from 'react';
+import React from "react";
+import webDevImg from "../Assets/web development.png";
+import mobileAppImg from "../Assets/mobile devv.png";
+import cloudImg from "../Assets/cloud.png";
+import uiuxImg from "../Assets/ui.png";
 
 const services = [
   {
-    title: 'Web Development',
-    description: 'Responsive, SEO-friendly websites and web applications tailored to your business goals.',
-    image: 'yyy', // Replace with actual path
+    title: "Web Development",
+    description:
+      "Responsive, SEO-friendly websites and web applications tailored to your business goals.",
+    image: webDevImg,
+    bgColor: "bg-blue-50",
+    iconColor: "text-blue-600",
   },
   {
-    title: 'Mobile App Development',
-    description: 'Cross-platform mobile apps for Android and iOS with smooth performance and great UX.',
-    image: 'yyy',
+    title: "Mobile App Development",
+    description:
+      "Cross-platform mobile apps for Android and iOS with smooth performance and great UX.",
+    image: mobileAppImg,
+    bgColor: "bg-purple-50",
+    iconColor: "text-purple-600",
   },
   {
-    title: 'UI/UX Design',
-    description: 'User-centric designs with intuitive interfaces to improve engagement and experience.',
-    image: 'yyy',
+    title: "UI/UX Design",
+    description:
+      "User-centric designs with intuitive interfaces to improve engagement and experience.",
+    image: uiuxImg,
+    bgColor: "bg-pink-50",
+    iconColor: "text-pink-600",
   },
   {
-    title: 'Cloud Solutions',
-    description: 'Scalable and secure cloud-based solutions for storage, hosting, and business operations.',
-    image: 'yyy',
+    title: "Cloud Solutions",
+    description:
+      "Scalable and secure cloud-based solutions for storage, hosting, and business operations.",
+    image: cloudImg,
+    bgColor: "bg-indigo-50",
+    iconColor: "text-indigo-600",
   },
 ];
 
 const Services = () => {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold text-purple-700 mb-6">Services We Provide</h2>
-        <p className="text-lg text-gray-600 mb-12">
-          Explore our core offerings designed to support your digital transformation journey.
-        </p>
+    <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-7xl mx-auto px-4">
+        <header className="text-center mb-16">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            Services We Provide
+          </h2>
+          <p className="text-xl text-gray-600">
+            Explore our core offerings designed to support your digital
+            transformation journey.
+          </p>
+        </header>
 
-        <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <div
+            <article
               key={index}
-              className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition text-left"
+              className={`${service.bgColor} rounded-xl p-6 hover:scale-105 transition`}
             >
-              <div className="flex justify-center mb-4">
-                <img src={service.image} alt={service.title} className="w-16 h-16 object-contain" />
-              </div>
-              <h3 className="text-xl font-semibold text-purple-700 mb-2">{service.title}</h3>
+              <img
+                src={service.image}
+                alt={service.title}
+                className={`w-16 h-16 mx-auto mb-4 ${service.iconColor}`}
+              />
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                {service.title}
+              </h3>
               <p className="text-gray-600">{service.description}</p>
-            </div>
+            </article>
           ))}
         </div>
       </div>
@@ -52,4 +77,3 @@ const Services = () => {
 };
 
 export default Services;
-

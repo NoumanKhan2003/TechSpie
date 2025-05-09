@@ -21,14 +21,12 @@ import {
 import logo from "../Assets/techspie_logo-removebg-preview.png";
 
 const Footer = () => {
-
   const currentYear = new Date().getFullYear();
 
   return (
     <Box
       sx={{
-        backgroundColor: "#f9f9f9",
-        boxShadow: "0px -5px 15px rgba(0, 0, 0, 0.05)",
+        backgroundColor: "#fafafa",
         position: "relative",
         "&::before": {
           content: '""',
@@ -36,9 +34,11 @@ const Footer = () => {
           top: 0,
           left: 0,
           right: 0,
-          height: "3px",
-          background: "linear-gradient(90deg, #8a0cad 0%, #b24dd4 100%)",
+          height: "4px",
+          background:
+            "linear-gradient(90deg, rgb(138, 12, 173), rgb(178, 77, 212))",
         },
+        boxShadow: "0px -10px 30px rgba(0, 0, 0, 0.03)",
       }}
     >
       <Container maxWidth="lg">
@@ -392,35 +392,31 @@ const Footer = () => {
               Connect With Us
             </Typography>
 
-            {/* Social Media Icons */}
+            {/* Updated Social Media Icons */}
             <Box
               sx={{
                 display: "flex",
+                gap: 2,
                 justifyContent: { xs: "center", md: "flex-start" },
-                gap: 1,
-                mb: 1.5,
               }}
             >
               {[
-                { icon: <Facebook fontSize="small" />, color: "#3b5998" },
-                { icon: <Twitter fontSize="small" />, color: "#1DA1F2" },
-                { icon: <LinkedIn fontSize="small" />, color: "#0077B5" },
-                { icon: <Instagram fontSize="small" />, color: "#E1306C" },
-              ].map((social, index) => (
+                { icon: <Facebook />, color: "#3b5998", label: "Facebook" },
+                { icon: <Twitter />, color: "#1DA1F2", label: "Twitter" },
+                { icon: <LinkedIn />, color: "#0077B5", label: "LinkedIn" },
+                { icon: <Instagram />, color: "#E1306C", label: "Instagram" },
+              ].map((social) => (
                 <IconButton
-                  key={index}
-                  size="small"
-                  aria-label={`social-${index}`}
+                  key={social.label}
+                  aria-label={social.label}
                   sx={{
-                    bgcolor: "rgba(138, 12, 173, 0.08)",
-                    width: 32,
-                    height: 32,
-                    color: "#8a0cad",
+                    background:
+                      "linear-gradient(45deg, rgb(138, 12, 173), rgb(178, 77, 212))",
+                    color: "white",
                     transition: "all 0.3s ease",
                     "&:hover": {
-                      transform: "translateY(-3px)",
-                      bgcolor: social.color,
-                      color: "white",
+                      transform: "translateY(-3px) rotate(8deg)",
+                      boxShadow: `0 6px 15px ${social.color}40`,
                     },
                   }}
                 >
@@ -459,51 +455,33 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        {/* Copyright Bar - Simplified */}
-        <Divider
-          sx={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(138, 12, 173, 0.15), transparent)",
-            height: "1px",
-            border: "none",
-            my: 1.5,
-          }}
-        />
-
+        {/* Updated Copyright Section */}
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            py: 2,
-            flexDirection: { xs: "column", sm: "row" },
-            gap: { xs: 1, sm: 0 },
+            borderTop: "1px solid rgba(138, 12, 173, 0.1)",
+            mt: 4,
+            pt: 3,
+            pb: 2,
+            textAlign: "center",
           }}
         >
           <Typography
             variant="body2"
-            sx={{ color: "#666", fontSize: "0.85rem" }}
-          >
-            © Firmus Vision {currentYear}. All Rights Reserved.
-          </Typography>
-
-          <Typography
-            variant="body2"
-            sx={{ color: "#666", fontSize: "0.85rem" }}
-          >
-            Made with ❤️ by{" "}
-            <Link
-              href="http://www.linkedin.com/in/nouman-khan-95923a256"
-              target="_blank"
-              rel="noopener"
-              sx={{
+            sx={{
+              color: "#666",
+              "& a": {
+                color: "rgb(138, 12, 173)",
                 textDecoration: "none",
-                color: "#8a0cad",
-                "&:hover": { textDecoration: "underline" },
-              }}
-            >
-              Nouman Khan
-            </Link>
+                fontWeight: 500,
+                transition: "all 0.2s",
+                "&:hover": {
+                  color: "rgb(178, 77, 212)",
+                  textDecoration: "underline",
+                },
+              },
+            }}
+          >
+            © {currentYear} Firmus Vision. All rights reserved.
           </Typography>
         </Box>
       </Container>
