@@ -2,10 +2,10 @@ import React from "react";
 
 const Home = () => {
   return (
-    <main className="min-h-screen flex items-center relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-50 to-purple-50"></div>
-
-      <section className="container mx-auto px-4 relative z-10 flex flex-col md:flex-row gap-12 ">
+    <main className="min-h-screen flex items-center pt-20">
+      {" "}
+      {/* Added pt-20 for navbar space */}
+      <section className="container mx-auto px-4 z-10 flex flex-col md:flex-row gap-12 py-24">
         <div className="w-full md:w-1/2 space-y-6">
           <h1>
             <span className="block text-5xl md:text-7xl font-bold mb-2 bg-gradient-to-r from-violet-700 to-purple-600 bg-clip-text text-transparent pl-2 pt-3">

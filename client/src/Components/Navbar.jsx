@@ -293,6 +293,7 @@ const Navbar = (props) => {
           transition: "all 0.3s ease",
           boxShadow: scrolled ? "0 2px 20px rgba(138, 12, 173, 0.1)" : "none",
           borderBottom: scrolled ? "none" : "1px solid rgba(138, 12, 173, 0.1)",
+          zIndex: 1300, // Added higher z-index
         }}
       >
         <Container maxWidth="xl">
