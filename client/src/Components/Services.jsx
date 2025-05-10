@@ -43,7 +43,6 @@ const Services = () => {
   return (
     <section className="py-24">
       {" "}
-      {/* Remove background gradient */}
       <div className="max-w-7xl mx-auto px-4">
         <header className="text-center mb-16">
           <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">

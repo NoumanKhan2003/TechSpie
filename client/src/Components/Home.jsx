@@ -2,9 +2,8 @@ import React from "react";
 
 const Home = () => {
   return (
-    <main className="min-h-screen flex items-center pt-20">
+    <main className="min-h-screen flex items-center pt-10">
       {" "}
-      {/* Added pt-20 for navbar space */}
       <section className="container mx-auto px-4 z-10 flex flex-col md:flex-row gap-12 py-24">
         <div className="w-full md:w-1/2 space-y-6">
           <h1>
@@ -34,7 +33,6 @@ const Home = () => {
         </div>
 
         {/* Image Section (Right) */}
-        {/* Add your image component here */}
       </section>
     </main>
   );
