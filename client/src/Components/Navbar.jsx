@@ -11,7 +11,6 @@ import {
   ListItemText,
   Divider,
   Typography,
-  useScrollTrigger,
   Slide,
   AppBar,
   Toolbar,
@@ -31,41 +30,109 @@ import {
 } from "@mui/icons-material";
 
 import logo from "../Assets/techspie_logo-removebg-preview.png";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
-function HideOnScroll(props) {
-  const { children } = props;
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 100,
-  });
-
-  return (
-    <Slide appear={false} direction="down" in={!trigger}>
-      {children}
-    </Slide>
-  );
-}
-
-const Navbar = (props) => {
+const Navbar = () => {
   const [state, setState] = React.useState({ right: false });
   const location = useLocation();
+  const [visible, setVisible] = React.useState(true);
+  const [transparent, setTransparent] = React.useState(false);
+  const lastScrollY = React.useRef(0);
 
-  const [scrolled, setScrolled] = React.useState(false);
+  const logoRef = React.useRef(null);
+  const navItemsRef = React.useRef([]);
+  const contactBtnRef = React.useRef(null);
+
+
+  navItemsRef.current = [];
+
+  const addToNavRefs = (el) => {
+    if (el && !navItemsRef.current.includes(el)) {
+      navItemsRef.current.push(el);
+    }
+  };
 
   React.useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
+    const controlNavbar = () => {
+      if (typeof window !== "undefined") {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > 40) {
+          setTransparent(true);
+        } else {
+          setTransparent(false);
+        }
+
+        if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+          setVisible(false);
+        } else {
+          setVisible(true);
+        }
+
+        lastScrollY.current = currentScrollY;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", controlNavbar);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", controlNavbar);
     };
-  }, [scrolled]);
+  }, []);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({ defaults: { ease: "elastic.out(1, 0.8)" } });
+
+    tl.fromTo(
+      logoRef.current,
+      { y: -100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.2 }
+    )
+      .fromTo(
+        navItemsRef.current,
+        { y: -50, opacity: 0, rotation: -15 },
+        {
+          y: 0,
+          opacity: 1,
+          rotation: 0,
+          stagger: 0.1,
+          duration: 0.8,
+        },
+        "-=0.8"
+      )
+      .fromTo(
+        contactBtnRef.current,
+        { scale: 0, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.6,
+          ease: "back.out(1.7)",
+        },
+        "-=0.4"
+      );
+
+    navItemsRef.current.forEach((item) => {
+      item.addEventListener("mouseenter", () => {
+        gsap.to(item, {
+          y: -3,
+          scale: 1.05,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      });
+
+      item.addEventListener("mouseleave", () => {
+        gsap.to(item, {
+          y: 0,
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
+      });
+    });
+  });
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -92,7 +159,7 @@ const Navbar = (props) => {
       contactForm.scrollIntoView({ behavior: "smooth" });
       setState({ right: false }); // Close drawer if open
     } else {
-      // If we're not on the home page, navigate to homepage and then scroll
+
       window.location.href = "/#contact";
     }
   };
@@ -111,6 +178,8 @@ const Navbar = (props) => {
       {menuItems.map((item) => (
         <Button
           key={item.text}
+          ref={(el) => addToNavRefs(el)}
+          data-path={item.path}
           component={RouterLink}
           to={item.path}
           sx={{
@@ -283,16 +352,19 @@ const Navbar = (props) => {
   );
 
   return (
-    <HideOnScroll {...props}>
+    <Slide appear={false} direction="down" in={visible}>
       <AppBar
         position="fixed"
-        elevation={scrolled ? 4 : 0}
+        elevation={0}
         sx={{
-          backgroundColor: "rgba(255, 255, 255, 0.95)",
+          backgroundColor: transparent
+            ? "rgba(255, 255, 255, 0.6)"
+            : "rgba(255, 255, 255, 0.95)",
           backdropFilter: "blur(10px)",
           transition: "all 0.3s ease",
-          boxShadow: scrolled ? "0 2px 20px rgba(138, 12, 173, 0.1)" : "none",
-          borderBottom: scrolled ? "none" : "1px solid rgba(138, 12, 173, 0.1)",
+          borderBottom: transparent
+            ? "none"
+            : "1px solid rgba(138, 12, 173, 0.1)",
           zIndex: 1300,
         }}
       >
@@ -302,6 +374,7 @@ const Navbar = (props) => {
             <Box
               component={RouterLink}
               to="/"
+              ref={logoRef}
               sx={{
                 display: "flex",
                 textDecoration: "none",
@@ -324,6 +397,7 @@ const Navbar = (props) => {
             <Box sx={{ display: { xs: "none", md: "none", lg: "block" } }}>
               <Button
                 onClick={handleScrollToContact}
+                ref={contactBtnRef}
                 variant="contained"
                 sx={{
                   background:
@@ -383,7 +457,7 @@ const Navbar = (props) => {
           </Toolbar>
         </Container>
       </AppBar>
-    </HideOnScroll>
+    </Slide>
   );
 };
 

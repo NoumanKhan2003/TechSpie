@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const teamMembers = [
   {
@@ -32,11 +37,78 @@ const teamMembers = [
 ];
 
 const Team = () => {
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  cardsRef.current = [];
+
+  const addToRefs = (el) => {
+    if (el && !cardsRef.current.includes(el)) {
+      cardsRef.current.push(el);
+    }
+  };
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+        end: "center 50%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    tl.fromTo(
+      headingRef.current,
+      { y: 50, opacity: 0, scale: 0.9 },
+      { y: 0, opacity: 1, scale: 1, duration: 1, ease: "power3.out" }
+    ).fromTo(
+      cardsRef.current,
+      {
+        y: 100,
+        opacity: 0,
+        rotationY: 15,
+        stagger: { amount: 0.8, from: "random" },
+      },
+      {
+        y: 0,
+        opacity: 1,
+        rotationY: 0,
+        duration: 1.2,
+        stagger: { amount: 0.8, from: "random" },
+        ease: "power4.out",
+      },
+      "-=0.5"
+    );
+
+    cardsRef.current.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        gsap.to(card, {
+          y: -20,
+          scale: 1.05,
+          rotationY: 5,
+          duration: 0.4,
+          ease: "power2.out",
+        });
+      });
+
+      card.addEventListener("mouseleave", () => {
+        gsap.to(card, {
+          y: 0,
+          scale: 1,
+          rotationY: 0,
+          duration: 0.6,
+          ease: "elastic.out(1, 0.5)",
+        });
+      });
+    });
+  });
+
   return (
-    <section className="py-24">
-      {" "}
+    <section className="py-24" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" ref={headingRef}>
           <h2 className="text-5xl font-bold bg-gradient-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent mb-4">
             Meet Our Team
           </h2>
@@ -51,13 +123,14 @@ const Team = () => {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+              ref={addToRefs}
+              className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover-3d-deep transform-gpu"
             >
               <div className="relative">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-64 object-cover"
+                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-purple-800 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </div>
@@ -75,7 +148,7 @@ const Team = () => {
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-300"
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-300 hover-rotate"
                     title="LinkedIn"
                   >
                     <svg
@@ -90,7 +163,7 @@ const Team = () => {
 
                   <a
                     href={`mailto:${member.email}`}
-                    className="flex items-center justify-center w-10 h-10 rounded-full bg-purple-100 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors duration-300"
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-purple-100 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors duration-300 hover-rotate"
                     title="Email"
                   >
                     <svg
