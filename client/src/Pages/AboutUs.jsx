@@ -327,14 +327,14 @@ const AboutUs = () => {
           // Pause any existing floating animation on this icon
           gsap.killTweensOf(icon);
 
-          // Apply hover animation
+          // Apply hover animation with lighter colors
           gsap.to(card, {
             scale: 1.08,
             y: -8,
             duration: 0.3,
             ease: "power2.out",
-            boxShadow: "0 15px 30px -10px rgba(124, 58, 237, 0.5)",
-            background: "linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%)",
+            boxShadow: "0 15px 30px -10px rgba(147, 197, 253, 0.5)",
+            background: "linear-gradient(135deg, #ddd6fe 0%, #bfdbfe 100%)",
           });
 
           gsap.to(icon, {
@@ -342,7 +342,7 @@ const AboutUs = () => {
             rotationY: 360,
             duration: 0.6,
             ease: "back.out(1.7)",
-            color: "#fff",
+            color: "#6366f1",
             clearProps: "rotation,y", // Clear any floating animation properties
           });
         },
@@ -353,8 +353,8 @@ const AboutUs = () => {
             y: 0,
             duration: 0.3,
             ease: "power2.in",
-            boxShadow: "0 5px 15px -5px rgba(124, 58, 237, 0.2)",
-            background: "linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%)",
+            boxShadow: "0 5px 15px -5px rgba(196, 181, 253, 0.2)",
+            background: "linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%)",
             onComplete: () => {
               // Reapply floating animation after hover ends
               const yAmount = 8 + Math.random() * 5;
@@ -376,7 +376,7 @@ const AboutUs = () => {
             rotationY: 0,
             duration: 0.5,
             ease: "back.out(1.7)",
-            color: "#c4b5fd",
+            color: "#8b5cf6",
           });
         },
       };
@@ -413,22 +413,22 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 bg-slate-950">
+    <div className="container mx-auto px-4 bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-20 mt-12 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-800 via-purple-800 to-slate-900"></div>
-        <div className="relative z-10 max-w-3xl mx-auto text-center px-6 py-12 rounded-3xl shadow-2xl backdrop-blur-md bg-slate-900/50">
+      <section className="relative py-20 mt-12 text-gray-800 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-200 via-indigo-100 to-white"></div>
+        <div className="relative z-10 max-w-3xl mx-auto text-center px-6 py-12 rounded-3xl shadow-lg backdrop-blur-md bg-white/70">
           <h1
             ref={heroTitleRef}
             className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight"
           >
-            <span className="inline-block bg-gradient-to-r from-violet-300 to-pink-300 bg-clip-text text-transparent">
+            <span className="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
               Crafting Digital Experiences
             </span>
           </h1>
           <p
             ref={heroTextRef}
-            className="text-lg md:text-xl mb-6 text-gray-200"
+            className="text-lg md:text-xl mb-6 text-gray-700"
           >
             We deliver innovative software solutions to help your business grow
             beautifully.
@@ -437,38 +437,38 @@ const AboutUs = () => {
       </section>
 
       {/* Mission & Values Section */}
-      <section className="py-16 bg-slate-900/50 backdrop-blur-sm">
+      <section className="py-16 bg-white/80 backdrop-blur-sm">
         <div className="md:flex md:space-x-8 px-4">
           <div
             ref={missionRef}
-            className="md:w-1/2 p-6 bg-slate-800/50 rounded-xl"
+            className="md:w-1/2 p-6 bg-purple-50 rounded-xl border border-purple-100 shadow-sm"
           >
-            <h2 className="text-3xl font-bold mb-4 text-violet-300">
+            <h2 className="text-3xl font-bold mb-4 text-purple-600">
               Our Mission
             </h2>
-            <p className="text-gray-200">
+            <p className="text-gray-700">
               Our mission is to empower businesses by providing cutting-edge
               software and exceptional service.
             </p>
           </div>
           <div
             ref={valuesRef}
-            className="md:w-1/2 mt-8 md:mt-0 p-6 bg-slate-800/50 rounded-xl"
+            className="md:w-1/2 mt-8 md:mt-0 p-6 bg-indigo-50 rounded-xl border border-indigo-100 shadow-sm"
           >
-            <h3 className="text-2xl font-semibold mb-4 text-violet-300">
+            <h3 className="text-2xl font-semibold mb-4 text-indigo-600">
               Our Values
             </h3>
-            <ul className="list-disc list-inside space-y-2 text-gray-200">
+            <ul className="list-disc list-inside space-y-2 text-gray-700">
               <li>
-                <strong className="text-violet-300">Innovation</strong>:
+                <strong className="text-purple-600">Innovation</strong>:
                 Embracing new ideas to solve complex problems.
               </li>
               <li>
-                <strong className="text-violet-300">Integrity</strong>: Building
+                <strong className="text-purple-600">Integrity</strong>: Building
                 trust through transparency and honesty.
               </li>
               <li>
-                <strong className="text-violet-300">Customer Centricity</strong>
+                <strong className="text-purple-600">Customer Centricity</strong>
                 : Putting clients first in everything we do.
               </li>
             </ul>
@@ -477,10 +477,10 @@ const AboutUs = () => {
       </section>
 
       {/* Technologies Section */}
-      <section className="py-16 bg-slate-900">
+      <section className="py-16 bg-gradient-to-b from-white to-blue-50">
         <h2
           ref={techTitleRef}
-          className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent"
+          className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 bg-clip-text text-transparent"
         >
           Technologies We Use
         </h2>
@@ -491,11 +491,11 @@ const AboutUs = () => {
           {techStack.map((tech) => (
             <div
               key={tech.name}
-              className="tech-card p-6 rounded-xl text-gray-200 font-semibold bg-gradient-to-br from-slate-800 to-violet-900 transition-all duration-300 flex flex-col items-center gap-3 min-w-[140px] shadow-lg shadow-violet-900/20 overflow-hidden cursor-pointer"
+              className="tech-card p-6 rounded-xl text-gray-700 font-semibold bg-gradient-to-br from-white to-blue-50 transition-all duration-300 flex flex-col items-center gap-3 min-w-[140px] shadow-md border border-blue-100 overflow-hidden cursor-pointer"
             >
               <div
                 ref={addToTechIconsRefs}
-                className="icon-container text-violet-300 text-4xl relative z-10"
+                className="icon-container text-indigo-500 text-4xl relative z-10"
               >
                 {tech.icon}
               </div>
@@ -506,14 +506,17 @@ const AboutUs = () => {
       </section>
 
       {/* Our Process Section */}
-      <section className="py-24 overflow-x-hidden" ref={processContainerRef}>
+      <section
+        className="py-24 overflow-x-hidden bg-white"
+        ref={processContainerRef}
+      >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16" ref={processTextRef}>
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent mb-4">
+            <h2 className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">
               Our Process
             </h2>
-            <div className="w-24 h-1 bg-purple-600 mx-auto mb-6 mt-4"></div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <div className="w-24 h-1 bg-purple-400 mx-auto mb-6 mt-4"></div>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               We follow a structured yet flexible approach to deliver
               high-quality software tailored to your goals.
             </p>
@@ -523,14 +526,14 @@ const AboutUs = () => {
           <div className="hidden md:block relative mb-16">
             <div
               ref={processLineRef}
-              className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 transform -translate-y-1/2"
+              className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-purple-300 via-indigo-300 to-blue-300 transform -translate-y-1/2"
             ></div>
             <div className="flex justify-between">
               {ourProcess.map((step, index) => (
                 <div key={index} className="relative">
                   <div
                     ref={addToDotsRefs}
-                    className={`w-8 h-8 rounded-full ${step.bg} border-4 ${step.borderColor} z-10 relative hover-rotate`}
+                    className={`w-8 h-8 rounded-full bg-white border-4 border-purple-300 z-10 relative hover-rotate`}
                   ></div>
                 </div>
               ))}
@@ -544,25 +547,25 @@ const AboutUs = () => {
                 ref={addToStepsRefs}
                 className="flex justify-center"
               >
-                <div className="group relative bg-slate-800/80 backdrop-blur-sm p-6 border border-slate-700 rounded-xl shadow-lg shadow-violet-900/20 transition-all duration-300 hover-3d">
+                <div className="group relative bg-white p-6 border border-gray-200 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg hover-3d">
                   <div
                     ref={addToNumberBadgesRefs}
-                    className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-slate-900 shadow-md flex items-center justify-center border-2 border-violet-500 font-bold text-lg text-violet-300"
+                    className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center border-2 border-purple-400 font-bold text-lg text-purple-600"
                   >
                     {step.step}
                   </div>
 
                   <div
                     ref={addToIconsRefs}
-                    className={`${step.bg} ${step.iconColor} ${step.hoverBg} p-4 rounded-full mb-6 transition-colors duration-300 w-16 h-16 flex items-center justify-center hover-tilt`}
+                    className={`bg-purple-50 text-purple-600 hover:bg-purple-100 p-4 rounded-full mb-6 transition-colors duration-300 w-16 h-16 flex items-center justify-center hover-tilt`}
                   >
                     {step.icon}
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-3">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-3">
                     {step.title}
                   </h3>
-                  <p className="text-gray-300">{step.description}</p>
+                  <p className="text-gray-600">{step.description}</p>
                 </div>
               </div>
             ))}
