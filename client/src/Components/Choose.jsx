@@ -83,13 +83,13 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <div className="relative py-24 z-10">
+    <div className="relative py-24 z-10 bg-blue-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-3xl mx-auto text-center mb-16" ref={textRef}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-violet-500 to-blue-500 bg-clip-text text-transparent">
             Why Choose Us
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-xl text-gray-700 leading-relaxed">
             Discover the key reasons why our software solutions stand out, and
             how we can help your business scale and succeed.
           </p>
@@ -100,15 +100,15 @@ const WhyChooseUs = () => {
             <div
               key={index}
               ref={addToRefs}
-              className="group bg-white backdrop-blur-sm bg-opacity-80 p-8 rounded-2xl shadow-lg transition-all duration-300 hover-3d-deep"
+              className="group bg-white backdrop-blur-sm bg-opacity-90 p-8 rounded-2xl shadow-md transition-all duration-300 hover-3d-deep"
             >
-              <div className="bg-gradient-to-br from-violet-600 to-purple-600 p-6 rounded-2xl mb-6 shadow-lg group-hover:shadow-violet-200 transition-shadow duration-300 hover-tilt">
+              <div className="bg-gradient-to-br from-violet-400 to-purple-500 p-6 rounded-2xl mb-6 shadow-md group-hover:shadow-violet-200 transition-shadow duration-300 hover-tilt">
                 {feature.icon}
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed">
                 {feature.description}
               </p>
             </div>

@@ -44,7 +44,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <main className="bg-gradient-to-b from-gray-700 via-gray-800 to-gray-900 relative">
+    <main className="bg-gradient-to-b from-blue-50 via-purple-50 to-indigo-50 relative">
       <div className="space-y-0 relative">
         <div id="home">
           <Home />

@@ -171,14 +171,14 @@ const OurApproach = () => {
   });
 
   return (
-    <section className="py-24 overflow-x-hidden" ref={sectionRef}>
+    <section className="py-24 overflow-x-hidden bg-blue-50" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16" ref={textRef}>
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent mb-4">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-violet-500 to-blue-500 bg-clip-text text-transparent mb-4">
             Our Approach
           </h2>
-          <div className="w-24 h-1 bg-purple-600 mx-auto mb-6 mt-4"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-purple-400 mx-auto mb-6 mt-4"></div>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             We follow a structured yet flexible approach to deliver high-quality
             software tailored to your goals.
           </p>
@@ -238,7 +238,7 @@ const OurApproach = () => {
         <div className="mt-16 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-medium rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 hover-lift"
+            className="inline-flex items-center px-6 py-3 bg-purple-500 text-white font-medium rounded-lg shadow-md hover:bg-purple-600 transition-colors duration-300 hover-lift"
           >
             Start Your Project
             <FaArrowRight className="ml-2" size={15} />

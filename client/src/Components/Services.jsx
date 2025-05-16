@@ -7,7 +7,6 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
@@ -111,13 +110,13 @@ const Services = () => {
   });
 
   return (
-    <section className="py-24" ref={sectionRef}>
+    <section className="py-24 bg-white" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4">
         <header className="text-center mb-16" ref={headingRef}>
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
             Services We Provide
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-700">
             Explore our core offerings designed to support your digital
             transformation journey.
           </p>
