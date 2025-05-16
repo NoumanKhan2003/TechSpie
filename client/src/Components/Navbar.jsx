@@ -46,6 +46,7 @@ const Navbar = () => {
 
 
   navItemsRef.current = [];
+  
 
   const addToNavRefs = (el) => {
     if (el && !navItemsRef.current.includes(el)) {
