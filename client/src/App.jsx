@@ -5,6 +5,10 @@ import Navbar from "./Components/Navbar";
 import HomePage from "./Pages/HomePage.jsx";
 import AboutUs from "./Pages/AboutUs.jsx";
 import Footer from "./Components/Footer.jsx"; 
+import Service from "./Pages/Service.jsx"; // Import the Service component
+
+   
+
 
 function App() {
   return (
@@ -13,6 +17,9 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUs />} />
+              <Route path="/services" element={<Service />} />
+      
+       
       </Routes>
       <Footer />
     </BrowserRouter>
