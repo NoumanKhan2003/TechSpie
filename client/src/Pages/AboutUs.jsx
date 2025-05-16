@@ -1,12 +1,17 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaReact, FaNodeJs, FaAws } from "react-icons/fa6";
+import {
+  FaReact,
+  FaNodeJs,
+  FaAws,
+  FaLightbulb,
+  FaPaintBrush,
+  FaLaptopCode,
+  FaRocket,
+} from "react-icons/fa";
 import { SiMongodb, SiTailwindcss, SiFigma } from "react-icons/si";
-import { HiMagnifyingGlassPlus } from "react-icons/hi2";
-import { MdOutlineDesignServices } from "react-icons/md";
-import { FaCode } from "react-icons/fa";
-import { FiNavigation } from "react-icons/fi";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +21,7 @@ const ourProcess = [
     title: "Discovery",
     description:
       "We understand your goals, audience, and challenges to tailor our solutions.",
-    icon: <HiMagnifyingGlassPlus size={40} />,
+    icon: <FaLightbulb size={40} />,
     bg: "bg-purple-100",
     iconColor: "text-purple-600",
     borderColor: "border-purple-300",
@@ -29,7 +34,7 @@ const ourProcess = [
     title: "Design",
     description:
       "We create intuitive, beautiful interfaces focused on user experience.",
-    icon: <MdOutlineDesignServices size={40} />,
+    icon: <FaPaintBrush size={40} />,
     bg: "bg-indigo-100",
     iconColor: "text-indigo-600",
     borderColor: "border-indigo-300",
@@ -42,7 +47,7 @@ const ourProcess = [
     title: "Development",
     description:
       "We build scalable, robust applications using the latest technologies.",
-    icon: <FaCode size={40} />,
+    icon: <FaLaptopCode size={40} />,
     bg: "bg-blue-100",
     iconColor: "text-blue-600",
     borderColor: "border-blue-300",
@@ -55,7 +60,7 @@ const ourProcess = [
     title: "Delivery & Support",
     description:
       "We ensure a smooth launch and offer ongoing support and updates.",
-    icon: <FiNavigation size={40} />,
+    icon: <FaRocket size={40} />,
     bg: "bg-green-100",
     iconColor: "text-green-600",
     borderColor: "border-green-300",
