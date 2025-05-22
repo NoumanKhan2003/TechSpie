@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import Home from "../Components/Home";
-import Services from "../Components/Services";
-import WhyChooseUs from "../Components/Choose";
-import Team from "../Components/Team";
-import OurApproach from "../Components/Approach";
-import ContactForm from "../Components/Form";
+import Home from "../Components/home/Home";
+import Services from "../Components/home/Services";
+import WhyChooseUs from "../Components/home/Choose";
+import Team from "../Components/home/Team";
+import OurApproach from "../Components/home/Approach";
+import ContactForm from "../Components/home/Form";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,7 +44,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <main className="bg-gradient-to-b from-gray-700 via-gray-800 to-gray-900 relative">
+    <main className="bg-gradient-to-b from-blue-50 via-purple-50 to-indigo-50 relative">
       <div className="space-y-0 relative">
         <div id="home">
           <Home />

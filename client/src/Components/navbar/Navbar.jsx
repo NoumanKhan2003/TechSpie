@@ -29,7 +29,7 @@ import {
   Close as CloseIcon,
 } from "@mui/icons-material";
 
-import logo from "../Assets/techspie_logo-removebg-preview.png";
+import logo from "../../Assets/techspie_logo-removebg-preview.png";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -44,9 +44,7 @@ const Navbar = () => {
   const navItemsRef = React.useRef([]);
   const contactBtnRef = React.useRef(null);
 
-
   navItemsRef.current = [];
-  
 
   const addToNavRefs = (el) => {
     if (el && !navItemsRef.current.includes(el)) {
@@ -160,7 +158,6 @@ const Navbar = () => {
       contactForm.scrollIntoView({ behavior: "smooth" });
       setState({ right: false }); // Close drawer if open
     } else {
-
       window.location.href = "/#contact";
     }
   };
@@ -359,8 +356,8 @@ const Navbar = () => {
         elevation={0}
         sx={{
           backgroundColor: transparent
-            ? "rgba(255, 255, 255, 0.6)"
-            : "rgba(255, 255, 255, 0.95)",
+            ? "rgba(255, 255, 255, 0.8)"
+            : "rgba(255, 255, 255, 0.98)",
           backdropFilter: "blur(10px)",
           transition: "all 0.3s ease",
           borderBottom: transparent
@@ -402,7 +399,7 @@ const Navbar = () => {
                 variant="contained"
                 sx={{
                   background:
-                    "linear-gradient(45deg, rgb(138, 12, 173), rgb(178, 77, 212))",
+                    "linear-gradient(45deg, rgb(159, 90, 182), rgb(178, 107, 212))",
                   color: "white",
                   fontWeight: "bold",
                   borderRadius: "30px",

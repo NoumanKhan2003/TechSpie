@@ -69,14 +69,14 @@ const Team = () => {
         y: 100,
         opacity: 0,
         rotationY: 15,
-        stagger: { amount: 0.8, from: "random" },
+        stagger: { amount: 0.8, from: "start" },
       },
       {
         y: 0,
         opacity: 1,
         rotationY: 0,
         duration: 1.2,
-        stagger: { amount: 0.8, from: "random" },
+        stagger: { amount: 0.8, from: "start" },
         ease: "power4.out",
       },
       "-=0.5"
@@ -106,14 +106,14 @@ const Team = () => {
   });
 
   return (
-    <section className="py-24" ref={sectionRef}>
+    <section className="py-24 bg-purple-50" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16" ref={headingRef}>
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent mb-4">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-violet-500 to-blue-500 bg-clip-text text-transparent mb-4">
             Meet Our Team
           </h2>
-          <div className="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-purple-400 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
             A passionate and experienced team dedicated to delivering impactful
             software solutions.
           </p>
@@ -148,7 +148,7 @@ const Team = () => {
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-300 hover-rotate"
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white transition-colors duration-300 hover-rotate"
                     title="LinkedIn"
                   >
                     <svg

@@ -1,10 +1,11 @@
 import React from "react";
 import "./App.css";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
+import Navbar from "./Components/navbar/Navbar.jsx";
 import HomePage from "./Pages/HomePage.jsx";
 import AboutUs from "./Pages/AboutUs.jsx";
-import Footer from "./Components/Footer.jsx"; 
+import Footer from "./Components/footer/Footer.jsx";
+import Service from "./Pages/Service.jsx";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/services" element={<Service />} />
       </Routes>
       <Footer />
     </BrowserRouter>
