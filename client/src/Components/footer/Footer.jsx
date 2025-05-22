@@ -21,7 +21,7 @@ import {
   LocationOn,
   Instagram,
 } from "@mui/icons-material";
-import logo from "../Assets/techspie_logo-removebg-preview.png";
+import logo from "../../Assets/techspie_logo-removebg-preview.png";
 
 gsap.registerPlugin(ScrollTrigger);
 

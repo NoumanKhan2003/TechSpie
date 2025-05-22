@@ -2,11 +2,8 @@ import React, { useRef } from "react";
 import { GiPuzzle } from "react-icons/gi";
 import { FaBoltLightning } from "react-icons/fa6";
 import { MdGroups } from "react-icons/md";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "../../utils/gsapUtils";
 import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const WhyChooseUs = () => {
   const textRef = useRef(null);

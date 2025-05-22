@@ -69,14 +69,14 @@ const Team = () => {
         y: 100,
         opacity: 0,
         rotationY: 15,
-        stagger: { amount: 0.8, from: "random" },
+        stagger: { amount: 0.8, from: "start" },
       },
       {
         y: 0,
         opacity: 1,
         rotationY: 0,
         duration: 1.2,
-        stagger: { amount: 0.8, from: "random" },
+        stagger: { amount: 0.8, from: "start" },
         ease: "power4.out",
       },
       "-=0.5"

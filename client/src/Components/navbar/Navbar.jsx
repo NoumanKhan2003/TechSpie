@@ -29,7 +29,7 @@ import {
   Close as CloseIcon,
 } from "@mui/icons-material";
 
-import logo from "../Assets/techspie_logo-removebg-preview.png";
+import logo from "../../Assets/techspie_logo-removebg-preview.png";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 

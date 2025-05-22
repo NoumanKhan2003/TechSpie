@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import Home from "../Components/Home";
-import Services from "../Components/Services";
-import WhyChooseUs from "../Components/Choose";
-import Team from "../Components/Team";
-import OurApproach from "../Components/Approach";
-import ContactForm from "../Components/Form";
+import Home from "../Components/home/Home";
+import Services from "../Components/home/Services";
+import WhyChooseUs from "../Components/home/Choose";
+import Team from "../Components/home/Team";
+import OurApproach from "../Components/home/Approach";
+import ContactForm from "../Components/home/Form";
 
 gsap.registerPlugin(ScrollTrigger);
 

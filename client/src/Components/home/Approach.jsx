@@ -5,10 +5,7 @@ import { FaArrowsAltH } from "react-icons/fa";
 import { FiNavigation } from "react-icons/fi";
 import { FaArrowRight } from "react-icons/fa";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { gsap, ScrollTrigger } from "../../utils/gsapUtils.js";
 
 const steps = [
   {
