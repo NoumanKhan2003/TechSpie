@@ -3,29 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { gsap, ScrollTrigger } from "../../utils/gsapUtils.js";
 import { FaArrowRight } from "react-icons/fa";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
-
-const faqItems = [
-  {
-    q: "What industries do you serve?",
-    a: "We serve healthcare, fintech, logistics, education, retail, and more.",
-  },
-  {
-    q: "Do you offer post-launch support?",
-    a: "Yes, we provide long-term support, feature enhancements, and bug fixes.",
-  },
-  {
-    q: "How does the project process work?",
-    a: "We follow a 4-step process: Discovery → Design → Development → Delivery.",
-  },
-  {
-    q: "What technologies do you use?",
-    a: "We use modern technologies like React, Node.js, Python, and cloud services.",
-  },
-  {
-    q: "Can you integrate with existing systems?",
-    a: "Absolutely! We can integrate with various APIs and legacy systems.",
-  },
-];
+import { faqItems } from "../../data/serviceData.jsx";
 
 const ServiceFaqs = () => {
   const [activeFaq, setActiveFaq] = useState(null);

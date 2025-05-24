@@ -2,39 +2,9 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { teamMembers } from "../../data/teamData";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const teamMembers = [
-  {
-    name: "Aviral",
-    role: "Founder",
-    image: "/api/placeholder/400/400",
-    linkedin: "https://linkedin.com/in/aviral",
-    email: "aviral@company.com",
-  },
-  {
-    name: "Nouman",
-    role: "Co-Founder",
-    image: "/api/placeholder/400/400",
-    linkedin: "https://linkedin.com/in/nouman",
-    email: "nouman@company.com",
-  },
-  {
-    name: "Sajal",
-    role: "Full-Stack Developer",
-    image: "/api/placeholder/400/400",
-    linkedin: "https://www.linkedin.com/in/sajalgoel349/",
-    email: "sajal@company.com",
-  },
-  {
-    name: "Mahek",
-    role: "Full-Stack Developer",
-    image: "/api/placeholder/400/400",
-    linkedin: "https://www.linkedin.com/in/mahek-garg-81ab68299/",
-    email: "mahek@company.com",
-  },
-];
 
 const Team = () => {
   const sectionRef = useRef(null);

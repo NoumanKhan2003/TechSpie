@@ -147,7 +147,7 @@ const Navbar = () => {
     { text: "Home", icon: <HomeIcon />, path: "/" },
     { text: "About Us", icon: <InfoIcon />, path: "/about" },
     { text: "Clients", icon: <PeopleIcon />, path: "/clients" },
-    { text: "Network", icon: <PublicIcon />, path: "/network" },
+    { text: "Team", icon: <PublicIcon />, path: "/team" },
     { text: "Services", icon: <ServicesIcon />, path: "/services" },
   ];
 

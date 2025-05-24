@@ -1,59 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { gsap, ScrollTrigger } from "../../utils/gsapUtils.js";
-import { FaTools, FaServer, FaMobileAlt } from "react-icons/fa";
-import { FaCloudArrowUp } from "react-icons/fa6";
-import { MdOutlineDesignServices, MdOutlineSupportAgent } from "react-icons/md";
-
-const services = [
-  {
-    title: "Custom Software Development",
-    description:
-      "Tailored software solutions that streamline your business operations and boost productivity.",
-    icon: <FaTools size={36} className="text-purple-600" />,
-    bg: "bg-purple-50",
-    iconBg: "bg-purple-100",
-  },
-  {
-    title: "Web App Development",
-    description:
-      "Modern, scalable web applications built using the latest technologies and best practices.",
-    icon: <FaServer size={36} className="text-indigo-600" />,
-    bg: "bg-indigo-50",
-    iconBg: "bg-indigo-100",
-  },
-  {
-    title: "Mobile App Development",
-    description:
-      "iOS and Android apps designed to deliver seamless mobile experiences for your users.",
-    icon: <FaMobileAlt size={36} className="text-blue-600" />,
-    bg: "bg-blue-50",
-    iconBg: "bg-blue-100",
-  },
-  {
-    title: "UI/UX Design",
-    description:
-      "Engaging, intuitive interfaces and experiences that put users first in every interaction.",
-    icon: <MdOutlineDesignServices size={40} className="text-pink-600" />,
-    bg: "bg-pink-50",
-    iconBg: "bg-pink-100",
-  },
-  {
-    title: "Cloud Solutions",
-    description:
-      "Secure cloud-native applications and infrastructure setup for scalable growth.",
-    icon: <FaCloudArrowUp size={36} className="text-cyan-600" />,
-    bg: "bg-cyan-50",
-    iconBg: "bg-cyan-100",
-  },
-  {
-    title: "Maintenance & Support",
-    description:
-      "Reliable post-launch support to keep your software optimized, secure, and up-to-date.",
-    icon: <MdOutlineSupportAgent size={40} className="text-emerald-600" />,
-    bg: "bg-emerald-50",
-    iconBg: "bg-emerald-100",
-  },
-];
+import { services } from "../../data/serviceData.jsx";
 
 const ServiceCards = () => {
   const servicesRef = useRef(null);
