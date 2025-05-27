@@ -1,8 +1,8 @@
-import AboutHero from "../Components/aboutUs/AboutHero";
-import Mission from "../Components/aboutUs/Mission";
-import Technologies from "../Components/aboutUs/Technologies";
-import Process from "../Components/aboutUs/Process";
-import CallToAction from "../Components/aboutUs/CallToAction";
+import AboutHero from "../Components/AboutUs/AboutHero";
+import Mission from "../Components/AboutUs/Mission";
+import Technologies from "../Components/AboutUs/Technologies";
+import Process from "../Components/AboutUs/Process";
+import CallToAction from "../Components/AboutUs/CallToAction";
 import { Helmet } from "react-helmet";
 
 function AboutUs() {

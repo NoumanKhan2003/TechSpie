@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { gsap, ScrollTrigger } from "../../utils/gsapUtils.js";
-import { services } from "../../data/serviceData.jsx";
+import { services } from "../../Data/serviceData.jsx";
 
 const ServiceCards = () => {
   const servicesRef = useRef(null);

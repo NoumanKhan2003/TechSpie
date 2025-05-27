@@ -3,9 +3,9 @@ import { Helmet } from "react-helmet";
 import { gsap } from "../utils/gsapUtils";
 
 // Import components
-import ContactHeader from "../components/ContactPage/ContactHeader";
-import ContactInfo from "../components/ContactPage/ContactInfo";
-import ContactForm from "../components/ContactPage/ContactForm";
+import ContactHeader from "../Components/Contact/ContactHeader";
+import ContactInfo from "../Components/Contact/ContactInfo";
+import ContactForm from "../Components/Contact/ContactForm";
 
 const ContactUsPage = () => {
   // Refs for animations

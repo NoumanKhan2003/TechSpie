@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Helmet } from "react-helmet";
-import { teamData } from "../data/teamData";
+import { teamData } from "../Data/teamData";
 import TeamHero from "../components/team/TeamHero";
 import TeamSection from "../components/team/TeamSection";
 import { gsap } from "../utils/gsapUtils";
