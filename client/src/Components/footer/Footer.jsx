@@ -212,24 +212,23 @@ const Footer = () => {
       }}
     >
       <Container maxWidth="lg">
-        {/* Combined top section with logo and contact info */}
-        <Grid
-          container
-          spacing={2}
+        {/* Top section with logo and contact info */}
+        <Box
+          ref={contactsRef}
           sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: "center",
             py: 2,
             borderBottom: "1px solid rgba(100, 116, 139, 0.2)",
-            alignItems: "center",
+            gap: 3,
           }}
-          ref={contactsRef}
         >
           {/* Logo */}
-          <Grid
-            item
-            xs={12}
-            md={3}
+          <Box
             ref={logoRef}
             sx={{
+              flex: { md: "0 0 25%", xs: "1 1 100%" },
               textAlign: { xs: "center", md: "left" },
               mb: { xs: 3, md: 0 },
             }}
@@ -249,46 +248,74 @@ const Footer = () => {
                 style={{ height: "100%", width: "100%", objectFit: "contain" }}
               />
             </Box>
-          </Grid>
+          </Box>
 
           {/* Contact information */}
-          <Grid item xs={12} md={9}>
-            <Grid container spacing={2} justifyContent="space-around" p={0}>
-              <Grid item xs={12} sm={4} p={0}>
-                {contactItem(
-                  <Email sx={{ color: "#a78bfa", fontSize: "1.3rem" }} />,
-                  "Email Us",
-                  "nouman@khan.in",
-                  "mailto:nouman@khan.in",
-                  "rgba(139, 92, 246, 0.1)"
-                )}
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                {contactItem(
-                  <Phone sx={{ color: "#818cf8", fontSize: "1.3rem" }} />,
-                  "Call Us",
-                  "+91 97177 25231",
-                  "tel:+919717725231",
-                  "rgba(99, 102, 241, 0.1)"
-                )}
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                {contactItem(
-                  <LocationOn sx={{ color: "#60a5fa", fontSize: "1.3rem" }} />,
-                  "Location",
-                  "Gurugram, Haryana",
-                  null,
-                  "rgba(59, 130, 246, 0.1)"
-                )}
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
+          <Box
+            sx={{
+              flex: 1,
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              justifyContent: { xs: "center", sm: "space-around" },
+              alignItems: { xs: "center", sm: "stretch" },
+              width: "100%",
+              gap: { xs: 2, sm: 0 },
+              textAlign: { xs: "center", sm: "left" },
+            }}
+          >
+            <Box sx={{ flex: 1, p: 0, display: "flex", justifyContent: { xs: "center", sm: "flex-start" } }}>
+              {contactItem(
+                <Email sx={{ color: "#a78bfa", fontSize: "1.3rem" }} />,
+                "Email Us",
+                "nouman@khan.in",
+                "mailto:nouman@khan.in",
+                "rgba(139, 92, 246, 0.1)"
+              )}
+            </Box>
+            <Box sx={{ flex: 1, p: 0, display: "flex", justifyContent: { xs: "center", sm: "flex-start" } }}>
+              {contactItem(
+                <Phone sx={{ color: "#818cf8", fontSize: "1.3rem" }} />,
+                "Call Us",
+                "+91 97177 25231",
+                "tel:+919717725231",
+                "rgba(99, 102, 241, 0.1)"
+              )}
+            </Box>
+            <Box sx={{ flex: 1, p: 0, display: "flex", justifyContent: { xs: "center", sm: "flex-start" } }}>
+              {contactItem(
+                <LocationOn sx={{ color: "#60a5fa", fontSize: "1.3rem" }} />,
+                "Location",
+                "Gurugram, Haryana",
+                null,
+                "rgba(59, 130, 246, 0.1)"
+              )}
+            </Box>
+          </Box>
+        </Box>
 
         {/* Main footer content with About Us, Services and Quick Links */}
-        <Grid container spacing={4} sx={{ py: 1 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            py: 3,
+            gap: 4,
+            alignItems: { xs: "center", md: "flex-start" },
+            textAlign: { xs: "center", md: "left" },
+          }}
+        >
           {/* About Us */}
-          <Grid item xs={12} md={4} ref={addToRefs}>
+          <Box
+            ref={addToRefs}
+            sx={{
+              flex: 1,
+              mb: { xs: 3, md: 0 },
+              width: { xs: "100%", md: "auto" },
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "center", md: "flex-start" },
+            }}
+          >
             {sectionHeader(
               "About Us",
               "linear-gradient(90deg, #8b5cf6 0%, #6366f1 100%)"
@@ -371,10 +398,20 @@ const Footer = () => {
                 sanya@columninches.in
               </Typography>
             </Box>
-          </Grid>
+          </Box>
 
           {/* Our Services */}
-          <Grid item xs={12} md={4} ref={addToRefs}>
+          <Box
+            ref={addToRefs}
+            sx={{
+              flex: 1,
+              mb: { xs: 3, md: 0 },
+              width: { xs: "100%", md: "auto" },
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "center", md: "flex-start" },
+            }}
+          >
             {sectionHeader(
               "Our Services",
               "linear-gradient(90deg, #6366f1 0%, #3b82f6 100%)"
@@ -385,10 +422,19 @@ const Footer = () => {
               <Link href="/services">Crisis Management</Link>
               <Link href="/services">Digital PR</Link>
             </Stack>
-          </Grid>
+          </Box>
 
           {/* Quick Links */}
-          <Grid item xs={12} md={4} ref={addToRefs}>
+          <Box
+            ref={addToRefs}
+            sx={{
+              flex: 1,
+              width: { xs: "100%", md: "auto" },
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "center", md: "flex-start" },
+            }}
+          >
             {sectionHeader(
               "Quick Links",
               "linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%)"
@@ -399,8 +445,8 @@ const Footer = () => {
               <Link href="/services">Services</Link>
               <Link href="/contact">Contact</Link>
             </Stack>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
 
         {/* Copyright section */}
         <Box
