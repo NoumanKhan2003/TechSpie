@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { projectsData } from "../Data/projectsData";
+import { projectsData } from "../Data/projectsData.jsx";
 import ProjectGrid from "../Components/works/ProjectGrid";
 import CtaSection from "../Components/works/CtaSection";
 import WorkHeader from "../Components/works/WorkHeader";
