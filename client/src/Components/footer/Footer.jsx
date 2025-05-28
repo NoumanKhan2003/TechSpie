@@ -331,14 +331,8 @@ const Footer = () => {
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              <p>
-                {" "}
-                TechSpie delivers innovative software solutions with
-                <p>
-                  cutting-edge technologies to help businesses scale efficiently
-                  and effectively in today's digital landscape.
-                </p>
-              </p>
+              TechSpie delivers innovative software solutions with cutting-edge technologies
+              to help businesses scale efficiently and effectively in today's digital landscape.
             </Typography>
 
             <Box
