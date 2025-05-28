@@ -70,6 +70,7 @@ const Home = () => {
   New Feature Available
 </span>
 
+
       </div> */}
 
       {/* Main Heading */}
