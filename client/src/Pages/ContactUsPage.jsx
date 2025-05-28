@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import { Helmet } from "react-helmet";
 import { gsap } from "../utils/gsapUtils";
 
 // Import components
@@ -108,13 +107,6 @@ const ContactUsPage = () => {
       ref={pageRef}
       className="py-16 px-4 min-h-screen bg-gradient-to-b from-purple-50 to-indigo-50 relative overflow-hidden"
     >
-      <Helmet>
-        <title>Contact Us | Codespie</title>
-        <meta
-          name="description"
-          content="Get in touch with Codespie for your software development needs. We're here to help bring your digital ideas to life."
-        />
-      </Helmet>
 
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-purple-200 rounded-full filter blur-3xl opacity-20 -mr-20 -mt-20"></div>

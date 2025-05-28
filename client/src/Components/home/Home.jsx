@@ -1,51 +1,23 @@
-import React, { useRef, useState } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import React from "react";
+
+const stats = [
+  {
+    label: "Active Users",
+    value: "10M+",
+  },
+  {
+    label: "Uptime",
+    value: "99.9%",
+  },
+  {
+    label: "Support",
+    value: "24/7",
+  },
+];
 
 const Home = () => {
-  const tiltRef = useRef(null);
-
-  const [xVal, setXVal] = useState(0);
-  const [yVal, setYVal] = useState(0);
-
-  const mouseMoving = (e) => {
-    setXVal(
-      (e.clientX -
-        tiltRef.current.getBoundingClientRect().x -
-        tiltRef.current.getBoundingClientRect().width / 2) /
-        20
-    );
-    setYVal(
-      -(
-        e.clientY -
-        tiltRef.current.getBoundingClientRect().y -
-        tiltRef.current.getBoundingClientRect().height / 2
-      ) / 10
-    );
-
-    // console.log(e.clientX - tiltRef.current.getBoundingClientRect().x);
-
-    tiltRef.current.style.transform = `rotateX(${yVal}deg) rotateY(${xVal}deg)`;
-  };
-
-  useGSAP(
-    function () {
-      gsap.to(tiltRef.current, {
-        transform: `rotateX(${yVal}deg) rotateY(${xVal}deg)`,
-        duration: 3,
-        ease: "power4.out",
-      });
-    },
-    [xVal, yVal]
-  );
-
   return (
-    <main
-      onMouseMove={(e) => {
-        mouseMoving(e);
-      }}
-      className="min-h-screen flex items-center pt-10 relative"
-    >
+    <main className="min-h-screen flex items-center pt-10 relative">
       <div className="outer-container w-full py-8">
         <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-100 via-purple-50 to-white text-purple-600">
           {/* Animated Background Elements */}
@@ -66,7 +38,6 @@ const Home = () => {
               <span className="block bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 bg-clip-text text-transparent animate-pulse py-4">
                 Future Today
               </span>
-              {/* <span className="block">Today</span> */}
             </h1>
 
             {/* Subtitle */}
@@ -78,7 +49,7 @@ const Home = () => {
             {/* CTA Buttons */}
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                className="group relative px-8 py-4 bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105 hover:rotate-x-6 hover:rotate-y-3"
+                className="group relative px-8 py-4 bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <span className="relative z-10">Get Started</span>
@@ -86,7 +57,7 @@ const Home = () => {
               </button>
 
               <button
-                className="group px-8 py-4 border-2 border-purple-300 text-purple-600 font-semibold rounded-lg backdrop-blur-sm hover:border-purple-500 hover:bg-purple-100 transition-transform duration-500 hover:scale-105 hover:rotate-y-6"
+                className="group px-8 py-4 border-2 border-purple-300 text-purple-600 font-semibold rounded-lg backdrop-blur-sm hover:border-purple-500 hover:bg-purple-100 transition-transform duration-500 hover:scale-105"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <span className="flex items-center justify-center">
@@ -108,16 +79,12 @@ const Home = () => {
               </button>
             </div>
 
-            {/* Stats Section with 3D hover */}
+            {/* Stats Section */}
             <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                { label: "Active Users", value: "10M+" },
-                { label: "Uptime", value: "99.9%" },
-                { label: "Support", value: "24/7" },
-              ].map((stat, idx) => (
+              {stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="text-center transition-transform duration-500 hover:scale-105 hover:-rotate-x-3 hover:rotate-y-3"
+                  className="text-center transition-transform duration-500 hover:scale-105"
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <div className="text-3xl md:text-4xl font-bold mb-2 animate-bounce text-purple-600">
