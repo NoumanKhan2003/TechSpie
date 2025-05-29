@@ -3,18 +3,10 @@ import Mission from "../Components/AboutUs/Mission";
 import Technologies from "../Components/AboutUs/Technologies";
 import Process from "../Components/AboutUs/Process";
 import CallToAction from "../Components/AboutUs/CallToAction";
-import { Helmet } from "react-helmet";
 
 function AboutUs() {
   return (
     <div className="min-h-screen w-full mx-auto px-4 bg-gray-50">
-      <Helmet>
-        <title>About Us | Codespie</title>
-        <meta
-          name="description"
-          content="Learn about Codespie, our mission, values, and the innovative technologies we use to deliver exceptional software solutions."
-        />
-      </Helmet>
       <AboutHero />
       <Mission />
       <Technologies />

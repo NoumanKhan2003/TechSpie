@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import { Helmet } from "react-helmet";
 import { teamData } from "../Data/teamData";
 import TeamHero from "../components/team/TeamHero";
 import TeamSection from "../components/team/TeamSection";
@@ -27,14 +26,6 @@ const Team = () => {
 
   return (
     <div ref={pageRef} className="overflow-hidden">
-      <Helmet>
-        <title>Our Team | Codespie</title>
-        <meta
-          name="description"
-          content="Meet the talented team behind Codespie - our founders, developers, designers, and more."
-        />
-      </Helmet>
-
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 w-full relative">
         <TeamHero />
 
