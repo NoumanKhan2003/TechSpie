@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { teamData } from "../data/teamData";
-import TeamHero from "../components/team/TeamHero";
-import TeamSection from "../components/team/TeamSection";
+import TeamHero from "../Components/team/TeamHero";
+import TeamSection from "../Components/team/TeamSection";
 import { gsap } from "../utils/gsapUtils";
 import { FaUsers } from "react-icons/fa";
 

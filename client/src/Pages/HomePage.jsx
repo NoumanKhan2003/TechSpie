@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Home from "../Components/home/Home";
 import Services from "../Components/home/Services";
 import WhyChooseUs from "../Components/home/Choose";
-import Team from "../Components/home/Team";
+import Team from "../Components/home/team";
 import OurApproach from "../Components/home/Approach";
 import ContactForm from "../Components/home/Form";
 

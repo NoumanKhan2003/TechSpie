@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { gsap, ScrollTrigger } from "../../utils/gsapUtils.js";
 import { FaArrowRight } from "react-icons/fa";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
-import { faqItems } from "../../Data/serviceData.jsx";
+import { faqItems } from "../../data/serviceData.jsx";
 
 const ServiceFaqs = () => {
   const [activeFaq, setActiveFaq] = useState(null);
