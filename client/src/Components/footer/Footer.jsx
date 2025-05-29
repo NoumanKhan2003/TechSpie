@@ -20,6 +20,7 @@ import {
   LocationOn,
   Instagram,
 } from "@mui/icons-material";
+import { Link as RouterLink } from "react-router-dom";
 import logo from "../../Assets/techspieLogo.png";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -466,7 +467,7 @@ const Footer = () => {
           >
             © {currentYear}{" "}
             <span style={{ fontWeight: 600, color: "#1e293b" }}>
-              Firmus Vision
+             <RouterLink to="/team" >Techspie</RouterLink> 
             </span>
             . All rights reserved.
           </Typography>

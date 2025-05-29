@@ -5,7 +5,7 @@ const teamData = {
       name: "Aviral",
       role: "Founder & CEO",
       image: "https://via.placeholder.com/300x400?text=CEO",
-      bio: "Former Google engineer with 15+ years of experience building scalable solutions. Founded Codespie with a vision to make quality software accessible to businesses of all sizes.",
+      bio: "Former Google engineer with 15+ years of experience building scalable solutions. Founded Techspie with a vision to make quality software accessible to businesses of all sizes.",
       socialLinks: {
         linkedin: "https://linkedin.com/",
         twitter: "https://twitter.com/",

@@ -28,7 +28,7 @@ const TeamHero = () => {
             <span className="block h-1 w-24 md:w-32 bg-gradient-to-r from-purple-300 to-blue-300 mx-auto mt-4 rounded-full"></span>
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto text-purple-100 leading-relaxed font-light">
-            The talented people behind Codespie who bring creativity, expertise,
+            The talented people behind Techspie who bring creativity, expertise,
             and passion to every project.
           </p>
         </div>
