@@ -26,15 +26,14 @@ const ServiceHero = () => {
 <section
   className="relative w-full bg-gradient-to-br from-purple-50 via-white to-purple-100 py-20 overflow-hidden"
 >
-  {/* Blurred Blob Background */}
-  <div
-    className="absolute top-0 left-1/2 transform -translate-x-1/2 -z-10 w-[500px] h-[500px] bg-purple-300 opacity-30 rounded-full filter blur-3xl"
-    style={{
-      animation: "pulseBlob 6s ease-in-out infinite",
-    }}
-  ></div>
+  {/* Blob Background */}
+  <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+            <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-bounce"></div>
+            <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-ping"></div>
+          </div>
 
-  {/* Keyframes for animations */}
+  {/* Inline keyframes */}
   <style>
     {`
       @keyframes fadeUp {
@@ -47,33 +46,33 @@ const ServiceHero = () => {
           transform: translateY(0);
         }
       }
-      @keyframes pulseBlob {
-        0%, 100% {
-          transform: translateX(-50%) scale(1);
-        }
-        50% {
-          transform: translateX(-50%) scale(1.1);
-        }
-      }
+
       @keyframes zoomInOut {
         0%, 100% {
           transform: scale(1);
         }
         50% {
-          transform: scale(1.1);
+          transform: scale(1.08);
+        }
+      }
+
+      @keyframes bounceBlob {
+        0%, 100% {
+          transform: translateX(-50%) translateY(0) scale(1);
+        }
+        50% {
+          transform: translateX(-50%) translateY(30px) scale(1.1);
         }
       }
     `}
   </style>
 
-  <div className="container mx-auto px-4 pt-12"> {/* Added pt-12 for top padding */}
+  <div className="container mx-auto px-4 pt-12">
     <div className="flex flex-col items-center text-center space-y-8">
-      {/* Main Heading with fade-up animation */}
+      {/* Main Heading */}
       <div
         className="space-y-4"
-        style={{
-          animation: "fadeUp 1s ease-out forwards",
-        }}
+        style={{ animation: "fadeUp 1s ease-out forwards" }}
       >
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
           <span className="inline-block">Transform</span>{" "}
@@ -87,7 +86,7 @@ const ServiceHero = () => {
         </h1>
       </div>
 
-      {/* Sub Paragraph */}
+      {/* Subheading */}
       <div className="max-w-3xl mx-auto">
         <p className="text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">
           We deliver cutting-edge digital solutions that drive growth, enhance efficiency, and transform the way you
@@ -95,8 +94,8 @@ const ServiceHero = () => {
         </p>
       </div>
 
-      {/* CTA Buttons with zoomInOut animation */}
-      <div className="flex flex-col sm:flex-row gap-4 mt-8">
+      {/* CTA Buttons - now spaced properly */}
+      <div className="flex flex-col sm:flex-row gap-6 mt-8">
         <button
           className="px-8 py-4 bg-purple-600 text-white font-semibold rounded-lg shadow-lg hover:bg-purple-700 hover:shadow-xl transition-all duration-300 ease-in-out"
           style={{
@@ -117,6 +116,7 @@ const ServiceHero = () => {
     </div>
   </div>
 </section>
+
 
 
  
