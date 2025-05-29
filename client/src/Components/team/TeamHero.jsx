@@ -30,6 +30,26 @@ function TeamHero() {
               {/* <span className="absolute bottom-2 left-0 w-full h-6 bg-gradient-to-r from-purple-400 to-pink-400 opacity-60 -z-10 transform -rotate-1 hover:rotate-1 hover:scale-110 transition-all duration-300"></span> */}
             </span>
           </h1>
+
+          <div
+            className={`mb-6 transition-all duration-800 delay-600 ${isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"}`}
+          >
+            <div className="w-32 h-2 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 mx-auto rounded-full relative overflow-hidden shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-40 animate-pulse"></div>
+            </div>
+          </div>
+
+          <p
+            className={`text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed font-light mb-6 transition-all duration-1000 delay-800 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
+          >
+            <span className="text-gray-800 font-medium">Behind every</span>{" "}
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold">
+              extraordinary project
+            </span>{" "}
+            <span className="text-gray-700">is a team of passionate innovators who turn</span>{" "}
+            <span className="text-purple-700 font-semibold hover:text-purple-800 transition-colors duration-300">
+              dreams into digital reality
+            </span>
           </p>
 
           <div
