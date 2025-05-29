@@ -30,28 +30,14 @@ import {
 } from "@mui/icons-material";
 
 import logo from "../../Assets/techspie_logo-removebg-preview.png";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 const Navbar = () => {
   const [state, setState] = React.useState({ right: false });
   const location = useLocation();
-  const navigate = useNavigate(); // Add navigate hook
+  const navigate = useNavigate();
   const [visible, setVisible] = React.useState(true);
   const [transparent, setTransparent] = React.useState(false);
   const lastScrollY = React.useRef(0);
-
-  const logoRef = React.useRef(null);
-  const navItemsRef = React.useRef([]);
-  const contactBtnRef = React.useRef(null);
-
-  navItemsRef.current = [];
-
-  const addToNavRefs = (el) => {
-    if (el && !navItemsRef.current.includes(el)) {
-      navItemsRef.current.push(el);
-    }
-  };
 
   React.useEffect(() => {
     const controlNavbar = () => {
@@ -81,59 +67,6 @@ const Navbar = () => {
     };
   }, []);
 
-  useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { ease: "elastic.out(1, 0.8)" } });
-
-    tl.fromTo(
-      logoRef.current,
-      { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.2 }
-    )
-      .fromTo(
-        navItemsRef.current,
-        { y: -50, opacity: 0, rotation: -15 },
-        {
-          y: 0,
-          opacity: 1,
-          rotation: 0,
-          stagger: 0.1,
-          duration: 0.8,
-        },
-        "-=0.8"
-      )
-      .fromTo(
-        contactBtnRef.current,
-        { scale: 0, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.6,
-          ease: "back.out(1.7)",
-        },
-        "-=0.4"
-      );
-
-    navItemsRef.current.forEach((item) => {
-      item.addEventListener("mouseenter", () => {
-        gsap.to(item, {
-          y: -3,
-          scale: 1.05,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      });
-
-      item.addEventListener("mouseleave", () => {
-        gsap.to(item, {
-          y: 0,
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.inOut",
-        });
-      });
-    });
-  });
-
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -154,8 +87,8 @@ const Navbar = () => {
 
   const handleScrollToContact = (event) => {
     event.preventDefault();
-    navigate("/contact"); // Navigate to contact page
-    setState({ right: false }); // Close drawer if open
+    navigate("/contact");
+    setState({ right: false });
   };
 
   // Desktop Navigation List
@@ -172,7 +105,6 @@ const Navbar = () => {
       {menuItems.map((item) => (
         <Button
           key={item.text}
-          ref={(el) => addToNavRefs(el)}
           data-path={item.path}
           component={RouterLink}
           to={item.path}
@@ -182,7 +114,8 @@ const Navbar = () => {
             color:
               location.pathname === item.path ? "rgb(138, 12, 173)" : "black",
             fontWeight: location.pathname === item.path ? "bold" : "medium",
-            fontSize: "1rem",
+            fontSize: "1.2rem",
+            fontFamily: "noto-serif",
             textTransform: "none",
             position: "relative",
             overflow: "hidden",
@@ -224,6 +157,7 @@ const Navbar = () => {
         height: "100%",
         backgroundColor: "white",
         position: "relative",
+        pt:4
       }}
       role="presentation"
       onKeyDown={toggleDrawer(false)}
@@ -237,13 +171,13 @@ const Navbar = () => {
           px: 2,
         }}
       >
-        <Box sx={{ height: "5rem", width: "14rem" }}>
+        {/* <Box sx={{ height: "5rem", width: "14rem" }}>
           <img
             src={logo}
             alt="FirmusVision"
             style={{ height: "100%", width: "100%" }}
           />
-        </Box>
+        </Box> */}
         <IconButton
           onClick={toggleDrawer(false)}
           sx={{
@@ -257,7 +191,7 @@ const Navbar = () => {
         </IconButton>
       </Box>
 
-      <Divider sx={{ bgcolor: "rgba(0,0,0,0.1)", my: 1 }} />
+      {/* <Divider sx={{ bgcolor: "rgba(0,0,0,0.1)", my: 1 }} /> */}
 
       <List sx={{ px: 1 }}>
         {menuItems.map((item) => (
@@ -303,6 +237,7 @@ const Navbar = () => {
                       location.pathname === item.path
                         ? "rgb(138, 12, 173)"
                         : "rgb(50, 50, 50)",
+                    fontFamily: "noto-serif",
                   },
                 }}
               />
@@ -336,6 +271,7 @@ const Navbar = () => {
                   fontWeight: "bold",
                   fontSize: "1.1rem",
                   color: "white",
+                  fontFamily: "noto-serif",
                 },
               }}
             />
@@ -368,7 +304,6 @@ const Navbar = () => {
             <Box
               component={RouterLink}
               to="/"
-              ref={logoRef}
               sx={{
                 display: "flex",
                 textDecoration: "none",
@@ -391,7 +326,6 @@ const Navbar = () => {
             <Box sx={{ display: { xs: "none", md: "none", lg: "block" } }}>
               <Button
                 onClick={handleScrollToContact}
-                ref={contactBtnRef}
                 variant="contained"
                 sx={{
                   background:
