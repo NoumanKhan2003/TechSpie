@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { teamMembers } from "../../data/teamData";
+import { teamMembers } from "../../Data/teamData";
 
 gsap.registerPlugin(ScrollTrigger);
 

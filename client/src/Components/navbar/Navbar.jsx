@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import {
   Box,
   Drawer,
@@ -36,6 +36,7 @@ import { useGSAP } from "@gsap/react";
 const Navbar = () => {
   const [state, setState] = React.useState({ right: false });
   const location = useLocation();
+  const navigate = useNavigate(); // Add navigate hook
   const [visible, setVisible] = React.useState(true);
   const [transparent, setTransparent] = React.useState(false);
   const lastScrollY = React.useRef(0);
@@ -146,20 +147,15 @@ const Navbar = () => {
   const menuItems = [
     { text: "Home", icon: <HomeIcon />, path: "/" },
     { text: "About Us", icon: <InfoIcon />, path: "/about" },
-    { text: "Clients", icon: <PeopleIcon />, path: "/clients" },
+    { text: "Works", icon: <PeopleIcon />, path: "/work" },
     { text: "Team", icon: <PublicIcon />, path: "/team" },
     { text: "Services", icon: <ServicesIcon />, path: "/services" },
   ];
 
   const handleScrollToContact = (event) => {
     event.preventDefault();
-    const contactForm = document.getElementById("contact");
-    if (contactForm) {
-      contactForm.scrollIntoView({ behavior: "smooth" });
-      setState({ right: false }); // Close drawer if open
-    } else {
-      window.location.href = "/#contact";
-    }
+    navigate("/contact"); // Navigate to contact page
+    setState({ right: false }); // Close drawer if open
   };
 
   // Desktop Navigation List

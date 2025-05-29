@@ -8,7 +8,6 @@ import {
   Typography,
   Link,
   IconButton,
-  Divider,
   Container,
   Grid,
 } from "@mui/material";
@@ -27,14 +26,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
   const containerRef = useRef(null);
   const logoRef = useRef(null);
   const contactsRef = useRef(null);
   const gridItemsRef = useRef([]);
 
   gridItemsRef.current = [];
-
   const addToRefs = (el) => {
     if (el && !gridItemsRef.current.includes(el)) {
       gridItemsRef.current.push(el);
@@ -53,51 +50,153 @@ const Footer = () => {
 
     tl.fromTo(
       containerRef.current,
-      {
-        "--gradient-width": "0%",
-      },
-      {
-        "--gradient-width": "100%",
-        duration: 1,
-      }
+      { "--gradient-width": "0%" },
+      { "--gradient-width": "100%", duration: 1 }
     );
 
     tl.fromTo(
       [logoRef.current, contactsRef.current],
-      {
-        y: 50,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.5,
-        stagger: 0.2,
-      },
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5, stagger: 0.2 },
       "-=0.5"
     );
 
     tl.fromTo(
       gridItemsRef.current,
-      {
-        y: 30,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.1,
-        duration: 0.3,
-      },
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, stagger: 0.1, duration: 0.3 },
       "-=0.2"
     );
   });
+
+  const contactItem = (icon, title, text, linkHref = null, gradientColors) => (
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: { xs: "center", md: "flex-start" },
+        padding: "16px",
+        borderRadius: "12px",
+        transition: "all 0.3s ease",
+        "&:hover": {
+          background: "rgba(0, 0, 0, 0.03)",
+          transform: "translateY(-3px)",
+        },
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          borderRadius: "12px",
+          width: 50,
+          height: 50,
+          background: gradientColors,
+          mr: 2,
+        }}
+      >
+        {icon}
+      </Box>
+      <Box>
+        <Typography
+          variant="subtitle2"
+          sx={{ fontWeight: 600, color: "#334155", mb: 0.5 }}
+        >
+          {title}
+        </Typography>
+        {linkHref ? (
+          <Typography
+            variant="body2"
+            component={Link}
+            href={linkHref}
+            sx={{
+              color: "#64748b",
+              textDecoration: "none",
+              transition: "color 0.2s",
+              "&:hover": { color: icon.props.sx.color },
+            }}
+          >
+            {text}
+          </Typography>
+        ) : (
+          <Typography variant="body2" sx={{ color: "#64748b" }}>
+            {text}
+          </Typography>
+        )}
+      </Box>
+    </Box>
+  );
+
+  const sectionHeader = (title, gradientColors) => (
+    <Typography
+      variant="h6"
+      sx={{
+        fontWeight: "bold",
+        color: "#1e293b",
+        mb: 2,
+        position: "relative",
+        display: "inline-block",
+        "&::after": {
+          content: '""',
+          display: "block",
+          width: "40px",
+          height: "3px",
+          background: gradientColors,
+          mt: 1,
+          borderRadius: "2px",
+          mx: { xs: "auto", md: 0 },
+        },
+      }}
+    >
+      {title}
+    </Typography>
+  );
+
+  const socialLinks = [
+    { icon: <Facebook />, color: "#4267B2", label: "Facebook" },
+    { icon: <Twitter />, color: "#1DA1F2", label: "Twitter" },
+    { icon: <LinkedIn />, color: "#0A66C2", label: "LinkedIn" },
+    { icon: <Instagram />, color: "#E4405F", label: "Instagram" },
+  ];
+
+  const linkStyle = {
+    "& a": {
+      color: "#64748b",
+      textDecoration: "none",
+      fontSize: "0.95rem",
+      transition: "all 0.3s",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: { xs: "center", md: "flex-start" },
+      "&:hover": {
+        color: "#8b5cf6",
+        transform: "translateX(5px)",
+      },
+      "&::before": {
+        content: '""',
+        display: "inline-block",
+        width: "6px",
+        height: "6px",
+        borderRadius: "50%",
+        backgroundColor: "#60a5fa",
+        marginRight: "10px",
+        transition: "all 0.3s",
+      },
+      "&:hover::before": {
+        backgroundColor: "#8b5cf6",
+        width: "8px",
+        height: "8px",
+      },
+    },
+  };
 
   return (
     <Box
       ref={containerRef}
       sx={{
-        backgroundColor: "#fafafa",
+        backgroundColor: "#f8fafc",
+        color: "#334155",
         position: "relative",
         "&::before": {
           content: '""',
@@ -106,397 +205,270 @@ const Footer = () => {
           left: 0,
           right: 0,
           height: "4px",
-          background:
-            "linear-gradient(90deg, rgb(138, 12, 173), rgb(178, 77, 212))",
+          background: "linear-gradient(90deg, #8b5cf6, #6366f1, #3b82f6)",
           width: "var(--gradient-width, 100%)",
         },
-        boxShadow: "0px -10px 30px rgba(0, 0, 0, 0.03)",
+        boxShadow: "0px -10px 30px rgba(0, 0, 0, 0.05)",
       }}
     >
       <Container maxWidth="lg">
-        {/* Top Section with Logo and Contact */}
-        <Grid
-          container
-          spacing={3}
+        {/* Top section with logo and contact info */}
+        <Box
+          ref={contactsRef}
           sx={{
-            py: 3,
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
             alignItems: "center",
+            py: 2,
+            borderBottom: "1px solid rgba(100, 116, 139, 0.2)",
+            gap: 3,
           }}
         >
-          {/* Logo Section */}
-          <Grid
-            item
-            xs={12}
-            md={3}
+          {/* Logo */}
+          <Box
             ref={logoRef}
-            sx={{ textAlign: { xs: "center", md: "left" } }}
+            sx={{
+              flex: { md: "0 0 25%", xs: "1 1 100%" },
+              textAlign: { xs: "center", md: "left" },
+              mb: { xs: 3, md: 0 },
+            }}
           >
             <Box
               sx={{
-                height: { md: "4.5rem", xs: "4rem" },
-                width: { md: "14rem", xs: "14rem" },
+                height: { md: "3.5rem", xs: "3.5rem" },
+                width: { md: "11rem", xs: "11rem" },
                 mx: { xs: "auto", md: 0 },
+                transition: "all 0.3s ease",
+                "&:hover": { transform: "translateY(-5px)" },
               }}
             >
               <img
                 src={logo}
-                alt="FirmusVision"
+                alt="TechSpie"
                 style={{ height: "100%", width: "100%", objectFit: "contain" }}
               />
             </Box>
-          </Grid>
+          </Box>
 
-          {/* Contact Info */}
-          <Grid item xs={12} md={9} ref={contactsRef}>
-            <Grid container spacing={2} justifyContent="space-around">
-              {/* Email */}
-              <Grid item xs={12} sm={4}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: { xs: "center", md: "flex-start" },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "8px",
-                      width: 40,
-                      height: 40,
-                      background:
-                        "linear-gradient(135deg, #8a0cad 0%, #b24dd4 100%)",
-                      mr: 1.5,
-                    }}
-                  >
-                    <Email sx={{ color: "white", fontSize: "1.2rem" }} />
-                  </Box>
-                  <Box>
-                    <Typography
-                      variant="subtitle2"
-                      sx={{ fontWeight: 600, color: "#333" }}
-                    >
-                      Email Us
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      component={Link}
-                      href="mailto:nouman@khan.in"
-                      sx={{
-                        color: "#666",
-                        textDecoration: "none",
-                        "&:hover": { color: "#8a0cad" },
-                      }}
-                    >
-                      nouman@khan.in
-                    </Typography>
-                  </Box>
-                </Box>
-              </Grid>
+          {/* Contact information */}
+          <Box
+            sx={{
+              flex: 1,
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              justifyContent: { xs: "center", sm: "space-around" },
+              alignItems: { xs: "center", sm: "stretch" },
+              width: "100%",
+              gap: { xs: 2, sm: 0 },
+              textAlign: { xs: "center", sm: "left" },
+            }}
+          >
+            <Box sx={{ flex: 1, p: 0, display: "flex", justifyContent: { xs: "center", sm: "flex-start" } }}>
+              {contactItem(
+                <Email sx={{ color: "#a78bfa", fontSize: "1.3rem" }} />,
+                "Email Us",
+                "nouman@khan.in",
+                "mailto:nouman@khan.in",
+                "rgba(139, 92, 246, 0.1)"
+              )}
+            </Box>
+            <Box sx={{ flex: 1, p: 0, display: "flex", justifyContent: { xs: "center", sm: "flex-start" } }}>
+              {contactItem(
+                <Phone sx={{ color: "#818cf8", fontSize: "1.3rem" }} />,
+                "Call Us",
+                "+91 97177 25231",
+                "tel:+919717725231",
+                "rgba(99, 102, 241, 0.1)"
+              )}
+            </Box>
+            <Box sx={{ flex: 1, p: 0, display: "flex", justifyContent: { xs: "center", sm: "flex-start" } }}>
+              {contactItem(
+                <LocationOn sx={{ color: "#60a5fa", fontSize: "1.3rem" }} />,
+                "Location",
+                "Gurugram, Haryana",
+                null,
+                "rgba(59, 130, 246, 0.1)"
+              )}
+            </Box>
+          </Box>
+        </Box>
 
-              {/* Phone */}
-              <Grid item xs={12} sm={4}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: { xs: "center", md: "flex-start" },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "8px",
-                      width: 40,
-                      height: 40,
-                      background:
-                        "linear-gradient(135deg, #8a0cad 0%, #b24dd4 100%)",
-                      mr: 1.5,
-                    }}
-                  >
-                    <Phone sx={{ color: "white", fontSize: "1.2rem" }} />
-                  </Box>
-                  <Box>
-                    <Typography
-                      variant="subtitle2"
-                      sx={{ fontWeight: 600, color: "#333" }}
-                    >
-                      Call Us
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      component={Link}
-                      href="tel:+919717725231"
-                      sx={{
-                        color: "#666",
-                        textDecoration: "none",
-                        "&:hover": { color: "#8a0cad" },
-                      }}
-                    >
-                      +91 97177 25231
-                    </Typography>
-                  </Box>
-                </Box>
-              </Grid>
-
-              {/* Location */}
-              <Grid item xs={12} sm={4}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: { xs: "center", md: "flex-start" },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "8px",
-                      width: 40,
-                      height: 40,
-                      background:
-                        "linear-gradient(135deg, #8a0cad 0%, #b24dd4 100%)",
-                      mr: 1.5,
-                    }}
-                  >
-                    <LocationOn sx={{ color: "white", fontSize: "1.2rem" }} />
-                  </Box>
-                  <Box>
-                    <Typography
-                      variant="subtitle2"
-                      sx={{ fontWeight: 600, color: "#333" }}
-                    >
-                      Location
-                    </Typography>
-                    <Typography variant="body2" sx={{ color: "#666" }}>
-                      Gurugram, Haryana
-                    </Typography>
-                  </Box>
-                </Box>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-
-        <Divider
+        {/* Main footer content with About Us, Services and Quick Links */}
+        <Box
           sx={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(138, 12, 173, 0.2), transparent)",
-            height: "1px",
-            border: "none",
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            py: 3,
+            gap: 4,
+            alignItems: { xs: "center", md: "flex-start" },
+            textAlign: { xs: "center", md: "left" },
           }}
-        />
+        >
+          {/* About Us */}
+          <Box
+            ref={addToRefs}
+            sx={{
+              flex: 1,
+              mb: { xs: 3, md: 0 },
+              width: { xs: "100%", md: "auto" },
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "center", md: "flex-start" },
+            }}
+          >
+            {sectionHeader(
+              "About Us",
+              "linear-gradient(90deg, #8b5cf6 0%, #6366f1 100%)"
+            )}
 
-        {/* Main Footer Content - Shortened */}
-        <Grid container spacing={2} sx={{ pt: 3, pb: 2 }}>
-          {["About Us", "Services", "Links", "Connect With Us"].map(
-            (section) => (
-              <Grid
-                key={section}
-                item
-                xs={12}
-                sm={6}
-                md={3}
-                ref={addToRefs}
-                sx={{ textAlign: { xs: "center", md: "left" } }}
-              >
-                <Typography
-                  variant="subtitle1"
+            <Typography
+              variant="body2"
+              sx={{
+                color: "#64748b",
+                fontSize: "0.95rem",
+                mb: 2,
+                lineHeight: 1.6,
+                textAlign: { xs: "center", md: "left" },
+              }}
+            >
+              TechSpie delivers innovative software solutions with cutting-edge technologies
+              to help businesses scale efficiently and effectively in today's digital landscape.
+            </Typography>
+
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+                justifyContent: { xs: "center", md: "flex-start" },
+                mb: 2,
+              }}
+            >
+              {socialLinks.map((social) => (
+                <IconButton
+                  key={social.label}
+                  aria-label={social.label}
                   sx={{
-                    fontWeight: "bold",
-                    color: "#333",
-                    mb: 1.5,
-                    "&::after": {
-                      content: '""',
-                      display: "block",
-                      width: "40px",
-                      height: "2px",
-                      background: "#8a0cad",
-                      mt: 0.5,
-                      mx: { xs: "auto", md: 0 },
+                    background: "rgba(0, 0, 0, 0.03)",
+                    color: "#64748b",
+                    transition: "all 0.3s ease",
+                    width: 38,
+                    height: 38,
+                    "&:hover": {
+                      background: social.color,
+                      color: "#ffffff",
+                      transform: "translateY(-5px)",
+                      boxShadow: `0 10px 20px rgba(0, 0, 0, 0.1)`,
                     },
                   }}
                 >
-                  {section}
-                </Typography>
-                {/* Content for each section */}
-                {section === "About Us" && (
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: "#555",
-                      fontSize: "0.9rem",
-                      mb: { xs: 2, md: 0 },
-                    }}
-                  >
-                    Firmus Vision is a women-driven PR agency creating impactful
-                    brand value through innovative strategies.
-                  </Typography>
-                )}
-                {section === "Services" && (
-                  <Stack
-                    direction={{ xs: "column", sm: "column" }}
-                    spacing={1}
-                    sx={{
-                      "& a": {
-                        color: "#555",
-                        textDecoration: "none",
-                        fontSize: "0.9rem",
-                        transition: "all 0.2s",
-                        "&:hover": {
-                          color: "#8a0cad",
-                          transform: "translateX(3px)",
-                        },
-                        display: "inline-block",
-                      },
-                    }}
-                  >
-                    <Link href="/services">Media Relations</Link>
-                    <Link href="/services">Content Creation</Link>
-                    <Link href="/services">Crisis Management</Link>
-                    <Link href="/services">Digital PR</Link>
-                  </Stack>
-                )}
-                {section === "Links" && (
-                  <Stack
-                    direction={{ xs: "column", sm: "column" }}
-                    spacing={1}
-                    sx={{
-                      "& a": {
-                        color: "#555",
-                        textDecoration: "none",
-                        fontSize: "0.9rem",
-                        transition: "all 0.2s",
-                        "&:hover": {
-                          color: "#8a0cad",
-                          transform: "translateX(3px)",
-                        },
-                        display: "inline-block",
-                      },
-                    }}
-                  >
-                    <Link href="/">Home</Link>
-                    <Link href="/about">About Us</Link>
-                    <Link href="/services">Services</Link>
-                    <Link href="/contact">Contact</Link>
-                  </Stack>
-                )}
-                {section === "Connect With Us" && (
-                  <>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        gap: 2,
-                        justifyContent: { xs: "center", md: "flex-start" },
-                      }}
-                    >
-                      {[
-                        {
-                          icon: <Facebook />,
-                          color: "#3b5998",
-                          label: "Facebook",
-                        },
-                        {
-                          icon: <Twitter />,
-                          color: "#1DA1F2",
-                          label: "Twitter",
-                        },
-                        {
-                          icon: <LinkedIn />,
-                          color: "#0077B5",
-                          label: "LinkedIn",
-                        },
-                        {
-                          icon: <Instagram />,
-                          color: "#E1306C",
-                          label: "Instagram",
-                        },
-                      ].map((social) => (
-                        <IconButton
-                          key={social.label}
-                          aria-label={social.label}
-                          sx={{
-                            background:
-                              "linear-gradient(45deg, rgb(138, 12, 173), rgb(178, 77, 212))",
-                            color: "white",
-                            transition: "all 0.3s ease",
-                            "&:hover": {
-                              transform: "translateY(-3px) rotate(8deg)",
-                              boxShadow: `0 6px 15px ${social.color}40`,
-                            },
-                          }}
-                        >
-                          {social.icon}
-                        </IconButton>
-                      ))}
-                    </Box>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: "#666",
-                        fontSize: "0.85rem",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: { xs: "center", md: "flex-start" },
-                      }}
-                    >
-                      <Email
-                        fontSize="small"
-                        sx={{ mr: 0.5, fontSize: "0.9rem", color: "#8a0cad" }}
-                      />
-                      <Typography
-                        variant="body2"
-                        component={Link}
-                        href="mailto:nouman@khan.in"
-                        sx={{
-                          color: "#666",
-                          textDecoration: "none",
-                          "&:hover": { color: "#8a0cad" },
-                        }}
-                      >
-                        sanya@columninches.in
-                      </Typography>
-                    </Typography>
-                  </>
-                )}
-              </Grid>
-            )
-          )}
-        </Grid>
+                  {social.icon}
+                </IconButton>
+              ))}
+            </Box>
 
-        {/* Updated Copyright Section */}
+            <Box
+              sx={{
+                color: "#64748b",
+                fontSize: "0.9rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: { xs: "center", md: "flex-start" },
+              }}
+            >
+              <Email
+                fontSize="small"
+                sx={{ mr: 1, fontSize: "1rem", color: "#8b5cf6" }}
+              />
+              <Typography
+                component={Link}
+                href="mailto:sanya@columninches.in"
+                sx={{
+                  color: "#64748b",
+                  textDecoration: "none",
+                  transition: "color 0.2s",
+                  "&:hover": { color: "#8b5cf6" },
+                }}
+              >
+                sanya@columninches.in
+              </Typography>
+            </Box>
+          </Box>
+
+          {/* Our Services */}
+          <Box
+            ref={addToRefs}
+            sx={{
+              flex: 1,
+              mb: { xs: 3, md: 0 },
+              width: { xs: "100%", md: "auto" },
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "center", md: "flex-start" },
+            }}
+          >
+            {sectionHeader(
+              "Our Services",
+              "linear-gradient(90deg, #6366f1 0%, #3b82f6 100%)"
+            )}
+            <Stack direction="column" spacing={2} sx={linkStyle}>
+              <Link href="/services">Media Relations</Link>
+              <Link href="/services">Content Creation</Link>
+              <Link href="/services">Crisis Management</Link>
+              <Link href="/services">Digital PR</Link>
+            </Stack>
+          </Box>
+
+          {/* Quick Links */}
+          <Box
+            ref={addToRefs}
+            sx={{
+              flex: 1,
+              width: { xs: "100%", md: "auto" },
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "center", md: "flex-start" },
+            }}
+          >
+            {sectionHeader(
+              "Quick Links",
+              "linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%)"
+            )}
+            <Stack direction="column" spacing={2} sx={linkStyle}>
+              <Link href="/">Home</Link>
+              <Link href="/about">About Us</Link>
+              <Link href="/services">Services</Link>
+              <Link href="/contact">Contact</Link>
+            </Stack>
+          </Box>
+        </Box>
+
+        {/* Copyright section */}
         <Box
           sx={{
-            borderTop: "1px solid rgba(138, 12, 173, 0.1)",
-            mt: 4,
-            pt: 3,
-            pb: 2,
+            borderTop: "1px solid rgba(100, 116, 139, 0.2)",
+            mt: 1,
+            py: 2,
             textAlign: "center",
           }}
         >
           <Typography
             variant="body2"
             sx={{
-              color: "#666",
+              color: "#64748b",
               "& a": {
-                color: "rgb(138, 12, 173)",
+                color: "#8b5cf6",
                 textDecoration: "none",
                 fontWeight: 500,
-                transition: "all 0.2s",
-                "&:hover": {
-                  color: "rgb(178, 77, 212)",
-                  textDecoration: "underline",
-                },
+                transition: "color 0.2s",
+                "&:hover": { color: "#a78bfa" },
               },
             }}
           >
-            © {currentYear} Firmus Vision. All rights reserved.
+            © {currentYear}{" "}
+            <span style={{ fontWeight: 600, color: "#1e293b" }}>
+              Firmus Vision
+            </span>
+            . All rights reserved.
           </Typography>
         </Box>
       </Container>
