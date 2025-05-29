@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { teamData } from "../Data/teamData";
+import { teamData } from "../data/teamData";
 import TeamHero from "../components/team/TeamHero";
 import TeamSection from "../components/team/TeamSection";
 import { gsap } from "../utils/gsapUtils";
