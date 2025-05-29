@@ -37,52 +37,91 @@ const AboutHero = () => {
   }, []);
 
   return (
-    <section className="relative py-20 mt-12 text-gray-800 overflow-hidden">
-      <div className="absolute inset-0"></div>
+ <section className="min-h-[70vh] flex items-start pt-20 relative">
+  <div className="outer-container w-full">
+    <div className="relative min-h-[70vh] w-full flex items-start justify-center overflow-hidden bg-gradient-to-br from-purple-100 via-purple-50 to-white text-purple-600">
+      
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-60 h-60 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-32 right-10 w-60 h-60 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-bounce"></div>
+        <div className="absolute -bottom-6 left-20 w-60 h-60 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-ping"></div>
+      </div>
 
-      <div className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-slate-100 py-10">
-        {/* Decorative animated blobs */}
-        <div className="absolute inset-0 pointer-events-none h-100">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-          <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-bounce"></div>
-          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-ping"></div>
-        </div>
-
-        {/* Main content with minimal height and animated heading */}
-        <div className="relative z-10 max-w-3xl mx-auto text-center px-8 py-10 rounded-3xl shadow-xl backdrop-blur-md bg-white/80 border border-white/20 hover:shadow-2xl transition-all duration-300">
-          <span className="inline-block px-4 py-1 mb-4 text-sm font-medium rounded-full bg-gradient-to-r from-purple-500/10 to-indigo-500/10 text-purple-700 transition-all duration-700 ease-in-out">
-            Our Story
+      {/* Main Content */}
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto space-y-4 mt-10">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold py-2">
+          <span
+            className="block text-black"
+            style={{
+              animation: "fadeFloat 3s ease-in-out infinite",
+            }}
+          >
+            Innovating
           </span>
-
-          <h1
-            ref={heroTitleRef}
-            className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight transition-all duration-700 ease-in-out opacity-0 translate-y-4"
+          <span
+            className="block bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 bg-clip-text text-transparent py-2"
+            style={{
+              animation: "fadeFloat 3s ease-in-out infinite",
+            }}
           >
-            <span className="inline-block bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 bg-clip-text text-transparent">
-              Passionate About Innovation
+            with Purpose
+          </span>
+        </h1>
+
+        <p className="mt-4 text-lg md:text-xl text-black max-w-2xl mx-auto leading-relaxed">
+          We are a team of passionate innovators focused on turning groundbreaking ideas into cutting-edge digital experiences. Learn more about our journey and vision.
+        </p>
+
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <button className="group relative px-6 py-3 bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold rounded-lg transition-transform duration-500 hover:scale-105">
+            <span className="relative z-10">Meet the Team</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </button>
+
+          <button className="group px-6 py-3 border-2 border-purple-300 text-purple-600 font-semibold rounded-lg backdrop-blur-sm hover:border-purple-500 hover:bg-purple-100 transition-transform duration-500 hover:scale-105">
+            <span className="flex items-center justify-center">
+              Explore Projects
+              <svg
+                className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1m6-10V7a3 3 0 00-3-3H6a3 3 0 00-3 3v1"
+                />
+              </svg>
             </span>
-          </h1>
-
-          <p
-            ref={heroTextRef}
-            className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed opacity-0 translate-y-4 transition-all duration-700 ease-in-out"
-          >
-            We're a team of creative thinkers and technical experts dedicated
-            to transforming ideas into exceptional digital experiences that
-            inspire and engage.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-4">
-            <button className="px-8 py-3 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium transform hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out">
-              Meet Our Team
-            </button>
-            <button className="px-8 py-3 rounded-full border border-purple-300 text-purple-700 font-medium hover:bg-purple-50 transform hover:-translate-y-1 hover:scale-105 transition duration-300 ease-in-out">
-              Our Projects
-            </button>
-          </div>
+          </button>
         </div>
       </div>
-    </section>
+
+      {/* Animation Keyframes */}
+      <style>
+        {`
+          @keyframes fadeFloat {
+            0%, 100% { 
+              transform: translateY(0);
+              opacity: 1;
+            }
+            50% { 
+              transform: translateY(-10px);
+              opacity: 0.8;
+            }
+          }
+        `}
+      </style>
+    </div>
+  </div>
+</section>
+
+
+
+
   );
 };
 

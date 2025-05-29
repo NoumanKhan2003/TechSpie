@@ -12,8 +12,8 @@ const ContactInfo = ({ leftColRef, addToContactRefs }) => {
     {
       icon: <FaEnvelope className="text-2xl text-purple-600" />,
       title: "Email",
-      content: "info@codespie.com",
-      href: "mailto:info@codespie.com",
+      content: "info@techspie.com",
+      href: "mailto:info@techspie.com",
     },
     {
       icon: <FaMapMarkerAlt className="text-2xl text-purple-600" />,
