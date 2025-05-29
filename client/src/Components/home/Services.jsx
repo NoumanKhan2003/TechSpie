@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import webDevImg from "../../Assets/web development.png";
-import mobileAppImg from "../../Assets/mobile devv.png";
+import mobileAppImg from "../../Assets/mobileDev.webp";
 import cloudImg from "../../Assets/cloud.png";
 import uiuxImg from "../../Assets/ui.png";
 import { useGSAP } from "@gsap/react";

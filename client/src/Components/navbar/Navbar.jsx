@@ -29,7 +29,7 @@ import {
   Close as CloseIcon,
 } from "@mui/icons-material";
 
-import logo from "../../Assets/techspie_logo-removebg-preview.png";
+import logo from "../../Assets/techspieLogo.png";
 
 const Navbar = () => {
   const [state, setState] = React.useState({ right: false });
@@ -174,7 +174,7 @@ const Navbar = () => {
         {/* <Box sx={{ height: "5rem", width: "14rem" }}>
           <img
             src={logo}
-            alt="FirmusVision"
+            alt="TechSpie"
             style={{ height: "100%", width: "100%" }}
           />
         </Box> */}
@@ -299,7 +299,7 @@ const Navbar = () => {
         }}
       >
         <Container maxWidth="xl">
-          <Toolbar disableGutters sx={{ py: 0.5 }}>
+          <Toolbar disableGutters sx={{ py: 0 }}>
             {/* Logo with Link */}
             <Box
               component={RouterLink}
@@ -311,10 +311,10 @@ const Navbar = () => {
                 flexGrow: { xs: 1, lg: 0 },
               }}
             >
-              <Box sx={{ height: "5rem", width: "14rem" }}>
+              <Box sx={{ height: "6rem", width: "8rem",ml:{md:3,xs:0} }}>
                 <img
                   src={logo}
-                  alt="FirmusVision"
+                  alt="TechSpie"
                   style={{ height: "100%", width: "100%" }}
                 />
               </Box>

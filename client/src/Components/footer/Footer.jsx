@@ -20,7 +20,7 @@ import {
   LocationOn,
   Instagram,
 } from "@mui/icons-material";
-import logo from "../../Assets/techspie_logo-removebg-preview.png";
+import logo from "../../Assets/techspieLogo.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -235,9 +235,9 @@ const Footer = () => {
           >
             <Box
               sx={{
-                height: { md: "3.5rem", xs: "3.5rem" },
-                width: { md: "11rem", xs: "11rem" },
-                mx: { xs: "auto", md: 0 },
+                height: { md: "6rem", xs: "6rem" },
+                width: { md: "7rem", xs: "7rem" },
+                ml:{md:5,xs:0},
                 transition: "all 0.3s ease",
                 "&:hover": { transform: "translateY(-5px)" },
               }}
@@ -245,7 +245,7 @@ const Footer = () => {
               <img
                 src={logo}
                 alt="TechSpie"
-                style={{ height: "100%", width: "100%", objectFit: "contain" }}
+                style={{ height: "100%", width: "100%", }}
               />
             </Box>
           </Box>
