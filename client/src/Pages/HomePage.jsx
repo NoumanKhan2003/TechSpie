@@ -8,7 +8,6 @@ import WhyChooseUs from "../Components/home/Choose";
 import Team from "../Components/home/Team";
 import OurApproach from "../Components/home/Approach";
 import ContactForm from "../Components/home/Form";
-import { Helmet } from "react-helmet";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,11 +46,7 @@ const HomePage = () => {
   return (
     <main className="bg-gradient-to-b from-blue-50 via-purple-50 to-indigo-50 relative">
       <div className="space-y-0 relative">
-        <Helmet>
-          <title>Home | Codespie</title>
-          <meta name="home" content="home page for codespie" />
-        </Helmet>
-        <div id="home">
+        <div>
           <Home />
         </div>
 
@@ -71,7 +66,7 @@ const HomePage = () => {
           <OurApproach />
         </div>
 
-        <div id="contact">
+        <div>
           <ContactForm />
         </div>
       </div>
