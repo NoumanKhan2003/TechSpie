@@ -1,99 +1,85 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef } from "react";
 
 function WorkHeader() {
   const[isVisible, setIsVisible] = useState(false)
+  const heroRef = useRef(null)
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
 
   return (    
-      <div className="py-12 px-4 relative bg-gradient-to-br from-purple-50 via-purple-25 to-white shadow-2xl border-b border-purple-200 overflow-hidden">
+      <section className="relative py-6 md:py-8 lg:py-10 w-full overflow-hidden bg-gradient-to-br from-purple-50 via-purple-25 to-white text-white">
       
       <div className="absolute inset-0">
-        <div className="absolute top-10 right-10 w-72 h-72 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full opacity-10 animate-pulse blur-sm"></div>
-        <div className="absolute bottom-10 left-10 w-48 h-48 bg-gradient-to-r from-violet-200 to-purple-200 rounded-full opacity-15 animate-bounce blur-sm"></div>
-        <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-r from-pink-200 to-purple-200 rounded-full opacity-8 animate-ping blur-sm"></div>
+ 
+        <div className="absolute top-3/4 left-1/5 w-52 h-52 bg-purple-300 rounded-full opacity-30 animate-ping blur-2xl"></div>
+
+        <div className="absolute top-32 right-16 w-48 h-48 bg-purple-300 rounded-full opacity-40 animate-bounce blur-lg"></div>
+        
+        <div className="absolute top-1/2 right-1/4 w-32 h-32 bg-purple-300 rounded-full opacity-45 animate-bounce blur-md"></div>
+  
+        <div className="absolute top-16 left-3/4 w-24 h-24 bg-purple-300 rounded-full opacity-45 animate-bounce blur-md"></div>
+        
+        <div className="absolute bottom-40 left-12 w-48 h-48 bg-purple-200 rounded-full opacity-25 animate-ping blur-2xl"></div>
+        
       </div>
 
-      
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(6)].map((_, i) => (
+      <div className="relative z-10 w-full px-0 text-center" ref={heroRef}>
+        <div className="max-w-6xl mx-auto px-4">
+          
           <div
-            key={i}
-            className="absolute w-2 h-2 bg-purple-300 rounded-full opacity-20 animate-pulse blur-sm"
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${30 + (i % 3) * 20}%`,
-              animationDelay: `${i * 0.5}s`,
-            }}
-          ></div>
-        ))}
-      </div>
+            className={`mb-6 transition-all duration-1000 delay-300 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none">
+              <span className="block text-gray-900 drop-shadow-lg mb-2">Explore</span>
+              <span className="block relative">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-purple-700 hover:from-purple-700 hover:via-blue-700 hover:to-purple-800 transition-all duration-500">
+                  Our Creative Work
+                </span>
+                
+                <div className="absolute -bottom-3 left-1/4 w-3 h-3 bg-blue-500 rounded-full animate-ping opacity-60"></div>
+              </span>
+            </h1>
+          </div>
 
-      <div
-        className={`max-w-3xl mx-auto relative z-10 bg-white bg-opacity-90 backdrop-blur-sm p-8 sm:p-10 md:p-12 rounded-2xl shadow-xl border border-purple-100 transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
-      >
-        
-        <div
-          className={`title-container mb-6 transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
-        >
-          <h1 className="text-7xl font-black mb-4 text-gray-900 leading-none tracking-tight drop-shadow-lg">
-            <span
-              className={`inline-block transition-all duration-700 delay-200 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-            >
-              Our{" "}
-            </span>
-            <span
-              className={`text-purple-700 relative inline-block transition-all duration-700 delay-400 hover:scale-105 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-            >
-              Work
-              <span className="absolute bottom-1 left-0 w-full h-4 bg-gradient-to-r from-purple-400 to-pink-400 opacity-70 -z-10 transform -rotate-1 transition-all duration-300 hover:rotate-1 hover:scale-110"></span>
+          <div
+            className={`mb-6 transition-all duration-800 delay-600 ${isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"}`}
+          >
+            <div className="relative flex items-center justify-center">
+              <div className="w-16 h-1 bg-gradient-to-r from-transparent to-blue-300 rounded-full"></div>
+              <div className="w-10 h-2 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 mx-3 rounded-full relative overflow-hidden shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-pulse"></div>
+              </div>
+              <div className="w-16 h-1 bg-gradient-to-r from-blue-300 to-transparent rounded-full"></div>
+            </div>
+          </div>
+
+          <div
+            className={`mb-8 transition-all duration-1000 delay-800 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
+          >
+            <div className="max-w-4xl mx-auto">
               
-              <span className="absolute -top-2 -right-2 w-3 h-3 bg-yellow-400 rounded-full animate-ping opacity-75"></span>
-            </span>
-          </h1>
-        </div>
+              <p className="text-lg sm:text-xl md:text-2xl leading-relaxed">
+                <span className="text-gray-800 font-light">Explore our collection of </span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-purple-700 font-bold">
+                  exceptional projects
+                </span>
+                <span className="text-gray-700 font-light"> that showcase our passion for design and innovation</span>
+              </p>
+            </div>
+          </div>
 
-        
-        <div
-          className={`accent-line-container mb-8 transition-all duration-800 delay-600 ${isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"}`}
-        >
-          <div className="w-32 h-2 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 mx-auto rounded-full relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-pulse"></div>
+          <div
+            className={`transition-all duration-1000 delay-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
+          >
+            <button className="px-10 py-3 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-700 hover:from-purple-700 hover:via-blue-700 hover:to-purple-800 text-white font-bold text-base rounded-full shadow-xl hover:shadow-blue-500/25 transform hover:scale-105 transition-all duration-300">
+              View Our Work
+            </button>
           </div>
         </div>
-
-        
-        <div
-          className={`subtitle-container transition-all duration-1000 delay-800 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
-        >
-          <p className="text-xl text-gray-800 max-w-2xl mx-auto leading-relaxed font-normal text-center">
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-semibold">
-              Discover the innovative solutions
-            </span>{" "}
-            we've created for our clients
-            <span className="block mt-2 font-medium text-gray-700 hover:text-purple-600 transition-colors duration-300">
-              across various industries and technologies
-            </span>
-          </p>
-        </div>
-
-        
-        <div
-          className={`mt-8 text-center transition-all duration-1000 delay-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
-        >
-          <button className="px-8 py-4 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-            Explore Our Work
-          </button>
-        </div>
       </div>
-
-    
-      <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full -mr-16 -mt-16 opacity-20 animate-pulse blur-sm"></div>
-      <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-violet-200 to-purple-200 rounded-full -ml-12 -mb-12 opacity-20 animate-bounce blur-sm"></div>
-      <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-gradient-to-br from-pink-200 to-purple-200 rounded-full opacity-15 animate-pulse blur-sm"></div>
-    </div>
+    </section>
   );
 };
 
