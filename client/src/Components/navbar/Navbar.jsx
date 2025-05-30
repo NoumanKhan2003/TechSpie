@@ -79,7 +79,7 @@ const Navbar = () => {
 
   const menuItems = [
     { text: "Home", icon: <HomeIcon />, path: "/" },
-    { text: "About Us", icon: <InfoIcon />, path: "/about" },
+    { text: "About", icon: <InfoIcon />, path: "/about" },
     { text: "Works", icon: <PeopleIcon />, path: "/work" },
     { text: "Team", icon: <PublicIcon />, path: "/team" },
     { text: "Services", icon: <ServicesIcon />, path: "/services" },
@@ -110,7 +110,7 @@ const Navbar = () => {
           to={item.path}
           sx={{
             mx: 1.5,
-            py: 1,
+            py: 0.5,
             color:
               location.pathname === item.path ? "rgb(138, 12, 173)" : "black",
             fontWeight: location.pathname === item.path ? "bold" : "medium",
@@ -126,13 +126,13 @@ const Navbar = () => {
               bottom: 0,
               left: 0,
               width: "100%",
-              height: "3px",
+              height: "4px",
               background:
                 "linear-gradient(90deg, rgb(138, 12, 173), rgb(178, 77, 212))",
               transform:
                 location.pathname === item.path ? "scaleX(1)" : "scaleX(0)",
               transformOrigin: "left",
-              transition: "transform 0.3s ease",
+              transition: "transform 0.6s ease",
             },
             "&:hover": {
               backgroundColor: "transparent",
@@ -157,7 +157,7 @@ const Navbar = () => {
         height: "100%",
         backgroundColor: "white",
         position: "relative",
-        pt:4
+        pt: 4,
       }}
       role="presentation"
       onKeyDown={toggleDrawer(false)}
@@ -265,7 +265,7 @@ const Navbar = () => {
               <ContactIcon />
             </ListItemIcon>
             <ListItemText
-              primary="Contact Us"
+              primary="Get started"
               sx={{
                 "& .MuiListItemText-primary": {
                   fontWeight: "bold",
@@ -311,7 +311,7 @@ const Navbar = () => {
                 flexGrow: { xs: 1, lg: 0 },
               }}
             >
-              <Box sx={{ height: "6rem", width: "8rem",ml:{md:3,xs:0} }}>
+              <Box sx={{ height: "6rem", width: "8rem", ml: { md: 3, xs: 0 } }}>
                 <img
                   src={logo}
                   alt="TechSpie"
@@ -332,7 +332,7 @@ const Navbar = () => {
                     "linear-gradient(45deg, rgb(159, 90, 182), rgb(178, 107, 212))",
                   color: "white",
                   fontWeight: "bold",
-                  borderRadius: "30px",
+                  borderRadius: "20px",
                   px: "2rem",
                   py: "0.8rem",
                   textTransform: "none",
@@ -342,13 +342,14 @@ const Navbar = () => {
                   "&:hover": {
                     transform: "translateY(-2px)",
                     boxShadow: "0 6px 20px rgba(138, 12, 173, 0.3)",
+                    borderRadius: "40px",
                   },
                   "&:active": {
                     transform: "translateY(0)",
                   },
                 }}
               >
-                Contact Us
+                Get Started
               </Button>
             </Box>
 
