@@ -1,5 +1,7 @@
 import React from "react";
-
+import Groups2OutlinedIcon from "@mui/icons-material/Groups2Outlined";
+import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
+import { Link as RouterLink } from "react-router-dom";
 const stats = [
   {
     label: "Active Users",
@@ -33,50 +35,43 @@ const Home = () => {
             style={{ perspective: "1200px" }}
           >
             {/* Main Heading */}
-            <h1 className=" text-5xl md:text-7xl lg:text-8xl font-bold py-4">
+            <h1 className=" text-5xl md:text-7xl lg:text-8xl font-bold py-0 mt-10 md:mt-9">
               <span className="block text-black">Build the</span>
-              <span className="block bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 bg-clip-text text-transparent animate-pulse py-4">
+              <span className="block bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 bg-clip-text text-transparent animate-pulse py-2">
                 Future Today
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-6 text-xl text-black md:text-2xl max-w-3xl mx-auto leading-relaxed">
+            <p className="mt-0 text-xl text-black md:text-2xl max-w-3xl mx-auto leading-relaxed ">
               Transform your ideas into reality with our cutting-edge platform.
               Experience the power of innovation at your fingertips.
             </p>
 
             {/* CTA Buttons */}
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                className="group relative px-8 py-4 bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105"
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                <span className="relative z-10">Get Started</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-
-              <button
-                className="group px-8 py-4 border-2 border-purple-300 text-purple-600 font-semibold rounded-lg backdrop-blur-sm hover:border-purple-500 hover:bg-purple-100 transition-transform duration-500 hover:scale-105"
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                <span className="flex items-center justify-center">
-                  Watch Demo
-                  <svg
-                    className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1m6-10V7a3 3 0 00-3-3H6a3 3 0 00-3 3v1"
-                    ></path>
-                  </svg>
-                </span>
-              </button>
+            <div className="mt-5 flex flex-col sm:flex-row gap-4 justify-center">
+              <RouterLink to="/contact">
+                <button
+                  className="group relative px-8 py-4 bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105 cursor-pointer"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <span className="relative z-10">
+                    Get Started <ArrowOutwardOutlinedIcon sx={{ ml: 1 }} />{" "}
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+              </RouterLink>
+              <RouterLink to="/team">
+                <button
+                  className="group px-6 py-4 border-2 border-purple-300 text-purple-600 font-semibold rounded-lg backdrop-blur-sm hover:border-purple-500 hover:bg-purple-100 transition-transform duration-500 hover:scale-105 cursor-pointer"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <span className="flex items-center justify-center">
+                    Meet the Team
+                    <Groups2OutlinedIcon sx={{ ml: 1 }} />
+                  </span>
+                </button>
+              </RouterLink>
             </div>
 
             {/* Stats Section */}
@@ -95,12 +90,7 @@ const Home = () => {
               ))}
             </div>
           </div>
-
-          {/* Scroll Indicator */}
-            <div className="w-6 h-10 border-2 border-purple-200 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-purple-300 rounded-full mt-2 animate-pulse"></div>
-            </div>
-          </div>
+        </div>
       </div>
     </main>
   );
