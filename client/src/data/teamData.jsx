@@ -1,10 +1,14 @@
+import nouman from "../Assets/nouman.jpg";
+import aviral from "../Assets/aviral.jpg";
+import sajal from "../Assets/sajal.jpg";
+import mahek from "../Assets/mahek.jpg";
 const teamData = {
   leadership: [
     {
       id: 1,
-      name: "Aviral",
+      name: "Aviral Singh",
       role: "Founder & CEO",
-      image: "https://via.placeholder.com/300x400?text=CEO",
+      image: aviral,
       bio: "Former Google engineer with 15+ years of experience building scalable solutions. Founded Techspie with a vision to make quality software accessible to businesses of all sizes.",
       socialLinks: {
         linkedin: "https://linkedin.com/",
@@ -15,8 +19,8 @@ const teamData = {
     {
       id: 2,
       name: "Nouman Khan",
-      role: "Co-Founder & CTO",
-      image: "https://via.placeholder.com/300x400?text=CTO",
+      role: "Co-Founder & COO",
+      image: nouman,
       bio: "Full-stack architect specialized in cloud infrastructure and DevOps. Passionate about building reliable systems that scale with your business needs.",
       socialLinks: {
         linkedin: "https://linkedin.com/",
@@ -30,7 +34,7 @@ const teamData = {
       id: 3,
       name: "Sajal",
       role: "Lead Full-stack Developer",
-      image: "https://via.placeholder.com/300x400?text=Frontend",
+      image: sajal,
       bio: "React specialist with an eye for detail. Creates beautiful, responsive interfaces that users love.",
       socialLinks: {
         linkedin: "https://linkedin.com/",
@@ -41,7 +45,7 @@ const teamData = {
       id: 4,
       name: "Mahek Garg",
       role: "Full Stack Developer",
-      image: "https://via.placeholder.com/300x400?text=Backend",
+      image: mahek,
       bio: "Node.js expert focused on building robust APIs and microservices. 8+ years in system architecture.",
       socialLinks: {
         linkedin: "https://linkedin.com/",
@@ -50,7 +54,7 @@ const teamData = {
     },
     {
       id: 5,
-      name: "David Kim",
+      name: "Vaishnavi Bharti",
       role: "Full Stack Developer",
       image: "https://via.placeholder.com/300x400?text=FullStack",
       bio: "Jack of all trades who thrives in the full development lifecycle. Specializes in React and Express.",
@@ -61,7 +65,7 @@ const teamData = {
     },
     {
       id: 6,
-      name: "Olivia Taylor",
+      name: "Pooja Rajput",
       role: "DevOps Engineer",
       image: "https://via.placeholder.com/300x400?text=DevOps",
       bio: "Automation enthusiast who keeps our CI/CD pipelines flowing smoothly. AWS certified expert.",
@@ -120,30 +124,30 @@ const teamData = {
 
 const teamMembers = [
   {
-    name: "Aviral",
-    role: "Founder",
-    image: "/api/placeholder/400/400",
+    name: "Aviral Singh",
+    role: "Founder and CEO",
+    image: aviral,
     linkedin: "https://linkedin.com/in/aviral",
     email: "aviral@company.com",
   },
   {
-    name: "Nouman",
-    role: "Co-Founder",
-    image: "/api/placeholder/400/400",
+    name: "Nouman Khan",
+    role: "Co-Founder and COO",
+    image: nouman,
     linkedin: "https://linkedin.com/in/nouman",
     email: "nouman@company.com",
   },
   {
-    name: "Sajal",
+    name: "Sajal Goel",
     role: "Full-Stack Developer",
-    image: "/api/placeholder/400/400",
+    image: sajal,
     linkedin: "https://www.linkedin.com/in/sajalgoel349/",
     email: "sajal@company.com",
   },
   {
-    name: "Mahek",
+    name: "Mahek Garg",
     role: "Full-Stack Developer",
-    image: "/api/placeholder/400/400",
+    image: mahek,
     linkedin: "https://www.linkedin.com/in/mahek-garg-81ab68299/",
     email: "mahek@company.com",
   },
