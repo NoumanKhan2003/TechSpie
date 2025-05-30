@@ -102,50 +102,52 @@ const Navbar = () => {
         flexGrow: 1,
       }}
     >
-      {menuItems.map((item) => (
-        <Button
-          key={item.text}
-          data-path={item.path}
-          component={RouterLink}
-          to={item.path}
-          sx={{
-            mx: 1.5,
-            py: 0.5,
-            color:
-              location.pathname === item.path ? "rgb(138, 12, 173)" : "black",
-            fontWeight: location.pathname === item.path ? "bold" : "medium",
-            fontSize: "1.2rem",
-            fontFamily: "noto-serif",
-            textTransform: "none",
-            position: "relative",
-            overflow: "hidden",
-            transition: "all 0.3s ease",
-            "&::before": {
-              content: '""',
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              width: "100%",
-              height: "4px",
-              background:
-                "linear-gradient(90deg, rgb(138, 12, 173), rgb(178, 77, 212))",
-              transform:
-                location.pathname === item.path ? "scaleX(1)" : "scaleX(0)",
-              transformOrigin: "left",
-              transition: "transform 0.6s ease",
-            },
-            "&:hover": {
-              backgroundColor: "transparent",
-              color: "rgb(138, 12, 173)",
+      {menuItems
+        .filter(item => !(item.text === "Home" && location.pathname === "/"))
+        .map((item) => (
+          <Button
+            key={item.text}
+            data-path={item.path}
+            component={RouterLink}
+            to={item.path}
+            sx={{
+              mx: 1.5,
+              py: 0.5,
+              color:
+                location.pathname === item.path ? "rgb(138, 12, 173)" : "black",
+              fontWeight: location.pathname === item.path ? "bold" : "medium",
+              fontSize: "1.2rem",
+              fontFamily: "noto-serif",
+              textTransform: "none",
+              position: "relative",
+              overflow: "hidden",
+              transition: "all 0.3s ease",
               "&::before": {
-                transform: "scaleX(1)",
+                content: '""',
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                width: "100%",
+                height: "4px",
+                background:
+                  "linear-gradient(90deg, rgb(138, 12, 173), rgb(178, 77, 212))",
+                transform:
+                  location.pathname === item.path ? "scaleX(1)" : "scaleX(0)",
+                transformOrigin: "left",
+                transition: "transform 0.6s ease",
               },
-            },
-          }}
-        >
-          {item.text}
-        </Button>
-      ))}
+              "&:hover": {
+                backgroundColor: "transparent",
+                color: "rgb(138, 12, 173)",
+                "&::before": {
+                  transform: "scaleX(1)",
+                },
+              },
+            }}
+          >
+            {item.text}
+          </Button>
+        ))}
     </Box>
   );
 
@@ -171,13 +173,6 @@ const Navbar = () => {
           px: 2,
         }}
       >
-        {/* <Box sx={{ height: "5rem", width: "14rem" }}>
-          <img
-            src={logo}
-            alt="TechSpie"
-            style={{ height: "100%", width: "100%" }}
-          />
-        </Box> */}
         <IconButton
           onClick={toggleDrawer(false)}
           sx={{
@@ -190,9 +185,6 @@ const Navbar = () => {
           <CloseIcon />
         </IconButton>
       </Box>
-
-      {/* <Divider sx={{ bgcolor: "rgba(0,0,0,0.1)", my: 1 }} /> */}
-
       <List sx={{ px: 1 }}>
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding sx={{ mb: 1 }}>
@@ -355,7 +347,7 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <IconButton
-              onClick={toggleDrawer(true)}
+              onClick={() => setState({ right: !state.right })}
               sx={{
                 display: { xs: "flex", lg: "none" },
                 ml: "auto",
