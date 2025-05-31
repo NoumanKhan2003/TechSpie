@@ -6,7 +6,7 @@ import CallToAction from "../Components/aboutUs/CallToAction";
 
 function AboutUs() {
   return (
-    <div className="min-h-screen w-full mx-auto px-4 bg-gray-50">
+    <div className="min-h-screen w-full mx-auto bg-gray-50">
       <AboutHero />
       <Mission />
       <Technologies />

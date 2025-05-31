@@ -23,29 +23,83 @@ const ServiceHero = () => {
   }, []);
 
   return (
-<section
-  className="relative w-full bg-gradient-to-br from-purple-50 via-white to-purple-100 py-20 overflow-hidden"
->
-  {/* Blob Background */}
-  <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-            <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-bounce"></div>
-            <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-ping"></div>
-          </div>
+    <>
+      <section className="relative w-full bg-gradient-to-br from-purple-50 via-white to-purple-100 py-20 overflow-hidden">
+        {/* Blob Background */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-bounce"></div>
+          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-ping"></div>
+        </div>
 
-  {/* Inline keyframes */}
-  <style>
-    {`
-      @keyframes fadeUp {
-        0% {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+        <div className="container mx-auto px-4 pt-12">
+          <div className="flex flex-col items-center text-center space-y-8">
+            {/* Main Heading */}
+            <div
+              className="space-y-4"
+              style={{ animation: "fadeFloat 3s ease-out infinite" }}
+            >
+              <h1
+                className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight"
+                style={{ fontFamily: "noto serif" }}
+              >
+                <span className="inline-block">Transform</span>{" "}
+                <span className="inline-block text-purple-600">Your</span>{" "}
+                <span className="inline-block">Business</span>
+                <br />
+                <span className="inline-block text-purple-700">
+                  With Our
+                </span>{" "}
+                <span className="inline-block bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
+                  Solutions
+                </span>
+              </h1>
+            </div>
+
+            {/* Subheading */}
+            <div className="max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">
+                We deliver cutting-edge digital solutions that drive growth,
+                enhance efficiency, and transform the way you do business. From
+                strategy to implementation, our expert team is here to turn your
+                vision into reality.
+              </p>
+            </div>
+
+            {/* CTA Buttons - now spaced properly */}
+            <div className="flex flex-col sm:flex-row gap-6 mt-8">
+              <button
+                className="px-8 py-4 bg-purple-600 text-white font-semibold rounded-lg shadow-lg hover:bg-purple-700 hover:shadow-xl transition-all duration-300 ease-in-out"
+                style={{
+                  animation: "zoomInOut 3s ease-in-out infinite",
+                }}
+              >
+                Get Started Today
+              </button>
+              <button
+                className="px-8 py-4 bg-white text-purple-600 font-semibold rounded-lg border-2 border-purple-600 hover:bg-purple-50 hover:shadow-lg transition-all duration-300 ease-in-out"
+                style={{
+                  animation: "zoomInOut 3s ease-in-out infinite",
+                }}
+              >
+                View Our Work
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <style>
+        {`
+          @keyframes fadeFloat {
+            0%, 100% { 
+              transform: translateY(0);
+              opacity: 1;
+            }
+            50% { 
+              transform: translateY(-10px);
+              opacity: 0.9;
+            }
+          }
 
       @keyframes zoomInOut {
         0%, 100% {
@@ -55,75 +109,10 @@ const ServiceHero = () => {
           transform: scale(1.08);
         }
       }
-
-      @keyframes bounceBlob {
-        0%, 100% {
-          transform: translateX(-50%) translateY(0) scale(1);
-        }
-        50% {
-          transform: translateX(-50%) translateY(30px) scale(1.1);
-        }
-      }
     `}
-  </style>
-
-  <div className="container mx-auto px-4 pt-12">
-    <div className="flex flex-col items-center text-center space-y-8">
-      {/* Main Heading */}
-      <div
-        className="space-y-4"
-        style={{ animation: "fadeUp 1s ease-out forwards" }}
-      >
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
-          <span className="inline-block">Transform</span>{" "}
-          <span className="inline-block text-purple-600">Your</span>{" "}
-          <span className="inline-block">Business</span>
-          <br />
-          <span className="inline-block text-purple-700">With Our</span>{" "}
-          <span className="inline-block bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
-            Solutions
-          </span>
-        </h1>
-      </div>
-
-      {/* Subheading */}
-      <div className="max-w-3xl mx-auto">
-        <p className="text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">
-          We deliver cutting-edge digital solutions that drive growth, enhance efficiency, and transform the way you
-          do business. From strategy to implementation, our expert team is here to turn your vision into reality.
-        </p>
-      </div>
-
-      {/* CTA Buttons - now spaced properly */}
-      <div className="flex flex-col sm:flex-row gap-6 mt-8">
-        <button
-          className="px-8 py-4 bg-purple-600 text-white font-semibold rounded-lg shadow-lg hover:bg-purple-700 hover:shadow-xl transition-all duration-300 ease-in-out"
-          style={{
-            animation: "zoomInOut 3s ease-in-out infinite",
-          }}
-        >
-          Get Started Today
-        </button>
-        <button
-          className="px-8 py-4 bg-white text-purple-600 font-semibold rounded-lg border-2 border-purple-600 hover:bg-purple-50 hover:shadow-lg transition-all duration-300 ease-in-out"
-          style={{
-            animation: "zoomInOut 3s ease-in-out infinite",
-          }}
-        >
-          View Our Work
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
- 
-   
+      </style>
+    </>
   );
-}
-
-
+};
 
 export default ServiceHero;
