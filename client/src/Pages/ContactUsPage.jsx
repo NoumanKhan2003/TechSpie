@@ -102,12 +102,15 @@ const ContactUsPage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div
       ref={pageRef}
       className="py-16 px-4 min-h-screen bg-gradient-to-b from-purple-50 to-indigo-50 relative overflow-hidden"
     >
-
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-purple-200 rounded-full filter blur-3xl opacity-20 -mr-20 -mt-20"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-200 rounded-full filter blur-3xl opacity-20 -ml-20 -mb-20"></div>

@@ -42,6 +42,10 @@ const HomePage = () => {
       });
     });
   }, []);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <main className="bg-gradient-to-b from-blue-50 via-purple-50 to-indigo-50 relative">

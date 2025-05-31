@@ -24,6 +24,10 @@ const Team = () => {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div ref={pageRef} className="overflow-hidden">
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 w-full relative">
