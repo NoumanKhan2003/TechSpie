@@ -56,11 +56,11 @@ function WorkHeader() {
               }`}
             >
               <div className="relative flex items-center justify-center">
-                <div className="w-16 h-1 bg-gradient-to-r from-transparent to-blue-300 rounded-full"></div>
-                <div className="w-10 h-2 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 mx-3 rounded-full relative overflow-hidden shadow-lg">
+                <div className="w-30 h-1 bg-gradient-to-r from-transparent to-blue-300 rounded-full"></div>
+                <div className="w-18 h-2 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 mx-3 rounded-full relative overflow-hidden shadow-lg">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-pulse"></div>
                 </div>
-                <div className="w-16 h-1 bg-gradient-to-r from-blue-300 to-transparent rounded-full"></div>
+                <div className="w-30 h-1 bg-gradient-to-r from-blue-300 to-transparent rounded-full"></div>
               </div>
             </div>
 

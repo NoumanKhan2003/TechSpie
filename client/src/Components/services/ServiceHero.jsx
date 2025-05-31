@@ -1,25 +1,11 @@
-import React, { useRef, useEffect } from "react";
-import gsap from "gsap";
+import React, { useState } from "react";
 
 const ServiceHero = () => {
-  const headerRef = useRef(null);
-  const subtitleRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const mainTl = gsap.timeline();
-
-    mainTl
-      .fromTo(
-        headerRef.current,
-        { opacity: 0, y: -50, scale: 0.9 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "back.out(1.7)" }
-      )
-      .fromTo(
-        subtitleRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" },
-        "-=0.4"
-      );
+  React.useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -36,12 +22,18 @@ const ServiceHero = () => {
           <div className="flex flex-col items-center text-center space-y-8">
             {/* Main Heading */}
             <div
-              className="space-y-4"
-              style={{ animation: "fadeFloat 3s ease-out infinite" }}
+              className={`space-y-4 transition-all duration-1000 delay-300 ${
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
+              }`}
             >
               <h1
                 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight"
-                style={{ fontFamily: "noto serif" }}
+                style={{
+                  fontFamily: "Noto Serif",
+                  animation: "fadeFloat 3s ease-in-out infinite",
+                }}
               >
                 <span className="inline-block">Transform</span>{" "}
                 <span className="inline-block text-purple-600">Your</span>{" "}
@@ -55,10 +47,28 @@ const ServiceHero = () => {
                 </span>
               </h1>
             </div>
-
+            <div
+              className={`mb-3 transition-all duration-800 delay-600 ${
+                isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
+              }`}
+            >
+              <div className="relative flex items-center justify-center">
+                <div className="w-30 h-1 bg-gradient-to-r from-transparent to-blue-300 rounded-full"></div>
+                <div className="w-15 h-2 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 mx-3 rounded-full relative overflow-hidden shadow-lg">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-pulse"></div>
+                </div>
+                <div className="w-30 h-1 bg-gradient-to-r from-blue-300 to-transparent rounded-full"></div>
+              </div>
+            </div>
             {/* Subheading */}
             <div className="max-w-3xl mx-auto">
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">
+              <p
+                className={`text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed transition-all duration-1000 delay-500 ${
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
+                }`}
+              >
                 We deliver cutting-edge digital solutions that drive growth,
                 enhance efficiency, and transform the way you do business. From
                 strategy to implementation, our expert team is here to turn your
@@ -66,10 +76,14 @@ const ServiceHero = () => {
               </p>
             </div>
 
-            {/* CTA Buttons - now spaced properly */}
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 mt-8">
               <button
-                className="px-8 py-4 bg-purple-600 text-white font-semibold rounded-lg shadow-lg hover:bg-purple-700 hover:shadow-xl transition-all duration-300 ease-in-out"
+                className={`px-8 py-4 bg-purple-600 text-white font-semibold rounded-lg shadow-lg hover:bg-purple-700 hover:shadow-xl transition-all duration-1000 delay-700 ${
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
+                }`}
                 style={{
                   animation: "zoomInOut 3s ease-in-out infinite",
                 }}
@@ -77,7 +91,11 @@ const ServiceHero = () => {
                 Get Started Today
               </button>
               <button
-                className="px-8 py-4 bg-white text-purple-600 font-semibold rounded-lg border-2 border-purple-600 hover:bg-purple-50 hover:shadow-lg transition-all duration-300 ease-in-out"
+                className={`px-8 py-4 bg-white text-purple-600 font-semibold rounded-lg border-2 border-purple-600 hover:bg-purple-50 hover:shadow-lg transition-all duration-1000 delay-800 ${
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
+                }`}
                 style={{
                   animation: "zoomInOut 3s ease-in-out infinite",
                 }}
@@ -90,7 +108,15 @@ const ServiceHero = () => {
       </section>
       <style>
         {`
-          @keyframes fadeFloat {
+          @keyframes zoomInOut {
+            0%, 100% {
+              transform: scale(1);
+            }
+            50% {
+              transform: scale(1.08);
+            }
+          }
+              @keyframes fadeFloat {
             0%, 100% { 
               transform: translateY(0);
               opacity: 1;
@@ -100,16 +126,7 @@ const ServiceHero = () => {
               opacity: 0.9;
             }
           }
-
-      @keyframes zoomInOut {
-        0%, 100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.08);
-        }
-      }
-    `}
+        `}
       </style>
     </>
   );

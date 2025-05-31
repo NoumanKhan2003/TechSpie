@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -7,8 +7,11 @@ gsap.registerPlugin(ScrollTrigger);
 const AboutHero = () => {
   const heroTitleRef = useRef(null);
   const heroTextRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    setIsVisible(true);
+
     const masterTl = gsap.timeline({
       scrollTrigger: {
         trigger: heroTitleRef.current,
@@ -48,9 +51,14 @@ const AboutHero = () => {
           </div>
 
           {/* Main Content */}
-          <div className="relative z-10 text-center px-6 max-w-4xl mx-auto space-y-4 mt-10">
+          <div className="relative z-10 text-center px-6 max-w-4xl mx-auto space-y-2 mt-10">
             <h1
-              className="text-4xl md:text-6xl lg:text-7xl font-bold py-2"
+              ref={heroTitleRef}
+              className={`text-4xl md:text-6xl lg:text-7xl font-bold py-2 transition-all duration-1000 delay-300 ${
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
+              }`}
               style={{ fontFamily: "Noto Serif" }}
             >
               <span
@@ -70,20 +78,51 @@ const AboutHero = () => {
                 with Purpose
               </span>
             </h1>
-
-            <p className="mt-4 text-lg md:text-xl text-black max-w-2xl mx-auto leading-relaxed">
+            <div
+              className={`mb-3 transition-all duration-800 delay-600 ${
+                isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
+              }`}
+            >
+              <div className="relative flex items-center justify-center">
+                <div className="w-30 h-1 bg-gradient-to-r from-transparent to-blue-300 rounded-full"></div>
+                <div className="w-15 h-2 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 mx-3 rounded-full relative overflow-hidden shadow-lg">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-pulse"></div>
+                </div>
+                <div className="w-30 h-1 bg-gradient-to-r from-blue-300 to-transparent rounded-full"></div>
+              </div>
+            </div>
+            <p
+              ref={heroTextRef}
+              className={`mt-4 text-lg md:text-xl text-black max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
+              }`}
+            >
               We are a team of passionate innovators focused on turning
               groundbreaking ideas into cutting-edge digital experiences. Learn
               more about our journey and vision.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="group relative px-6 py-3 bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold rounded-lg transition-transform duration-500 hover:scale-105">
+              <button
+                className={`group relative px-6 py-3 bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold rounded-lg transition-all duration-1000 delay-700 hover:scale-105 ${
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
+                }`}
+              >
                 <span className="relative z-10">Meet the Team</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
 
-              <button className="group px-6 py-3 border-2 border-purple-300 text-purple-600 font-semibold rounded-lg backdrop-blur-sm hover:border-purple-500 hover:bg-purple-100 transition-transform duration-500 hover:scale-105">
+              <button
+                className={`group px-6 py-3 border-2 border-purple-300 text-purple-600 font-semibold rounded-lg backdrop-blur-sm hover:border-purple-500 hover:bg-purple-100 transition-all duration-1000 delay-800 hover:scale-105 ${
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
+                }`}
+              >
                 <span className="flex items-center justify-center">
                   Explore Projects
                   <svg

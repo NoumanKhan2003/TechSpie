@@ -40,15 +40,19 @@ function TeamHero() {
               </span>
             </h1>
 
-            <div
-              className={`mb-6 transition-all duration-800 delay-600 ${
-                isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
-              }`}
-            >
-              <div className="w-32 h-2 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 mx-auto rounded-full relative overflow-hidden shadow-lg">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-40 animate-pulse"></div>
+           <div
+                className={`mb-3 transition-all duration-800 delay-600 ${
+                  isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
+                }`}
+              >
+                <div className="relative flex items-center justify-center">
+                  <div className="w-30 h-1 bg-gradient-to-r from-transparent to-blue-300 rounded-full"></div>
+                  <div className="w-15 h-2 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 mx-3 rounded-full relative overflow-hidden shadow-lg">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-pulse"></div>
+                  </div>
+                  <div className="w-30 h-1 bg-gradient-to-r from-blue-300 to-transparent rounded-full"></div>
+                </div>
               </div>
-            </div>
 
             <p
               className={`text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed font-light mb-6 transition-all duration-1000 delay-800 ${

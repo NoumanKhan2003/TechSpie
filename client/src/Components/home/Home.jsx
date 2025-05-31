@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Groups2OutlinedIcon from "@mui/icons-material/Groups2Outlined";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 import { Link as RouterLink } from "react-router-dom";
@@ -18,6 +18,12 @@ const stats = [
 ];
 
 const Home = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   return (
     <>
       <main className="min-h-screen flex items-center pt-10 relative">
@@ -32,23 +38,39 @@ const Home = () => {
 
             {/* Main Content Container */}
             <div
-              className="relative z-10 text-center px-6 max-w-6xl mx-auto space-y-6"
+              className="relative z-10 text-center px-6 max-w-6xl mx-auto space-y-2"
               style={{ perspective: "1200px" }}
             >
               {/* Main Heading */}
               <h1
-                className=" text-5xl md:text-7xl lg:text-8xl font-bold py-0 mt-10 md:mt-9"
+                className={`text-5xl md:text-7xl lg:text-8xl font-bold py-0 mt-10 md:mt-9 transition-all duration-1000 delay-300 ${
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
+                }`}
                 style={{
                   animation: "fadeFloat 3s ease-in-out infinite",
                   fontFamily: "Noto Serif",
                 }}
               >
                 <span className="block text-black">Build the</span>
-                <span className="block bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 bg-clip-text text-transparent animate-pulse py-2">
+                <span className="block bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 bg-clip-text text-transparent animate-pulse py-0">
                   Future Today
                 </span>
               </h1>
-
+              <div
+                className={`mb-3 transition-all duration-800 delay-600 ${
+                  isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
+                }`}
+              >
+                <div className="relative flex items-center justify-center">
+                  <div className="w-30 h-1 bg-gradient-to-r from-transparent to-blue-300 rounded-full"></div>
+                  <div className="w-15 h-2 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 mx-3 rounded-full relative overflow-hidden shadow-lg">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-pulse"></div>
+                  </div>
+                  <div className="w-30 h-1 bg-gradient-to-r from-blue-300 to-transparent rounded-full"></div>
+                </div>
+              </div>
               {/* Subtitle */}
               <p className="mt-0 text-xl text-black md:text-2xl max-w-3xl mx-auto leading-relaxed ">
                 Transform your ideas into reality with our cutting-edge
