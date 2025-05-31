@@ -103,7 +103,7 @@ const Navbar = () => {
       }}
     >
       {menuItems
-        .filter(item => !(item.text === "Home" && location.pathname === "/"))
+        .filter((item) => !(item.text === "Home" && location.pathname === "/"))
         .map((item) => (
           <Button
             key={item.text}
@@ -315,7 +315,8 @@ const Navbar = () => {
             <DesktopNav />
 
             {/* Contact Us Button (Desktop) */}
-            <Box sx={{ display: { xs: "none", md: "none", lg: "block" } }}>
+
+            {/* <Box sx={{ display: { xs: "none", md: "none", lg: "block" } }}>
               <Button
                 onClick={handleScrollToContact}
                 variant="contained"
@@ -343,7 +344,49 @@ const Navbar = () => {
               >
                 Get Started
               </Button>
-            </Box>
+            </Box> */}
+
+            <div className="relative  items-center  lg:block hidden">
+              <button
+                onClick={handleScrollToContact}
+                className="relative flex items-center gap-1 py-3 px-10 rounded-full font-semibold text-black
+          bg-[rgb(217,168,255)]  border-transparent shadow-[0_0_0_2px_#622bff]
+          overflow-hidden cursor-pointer transition-all duration-600 ease-[cubic-bezier(0.23,1,0.32,1)]
+          group "
+                style={{ fontSize: "16px" }}
+              >
+                {/* Left Arrow */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="arr-2 absolute left-[-25%] w-6 fill-black z-10 transition-all duration-800 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:left-4"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+                </svg>
+                {/* Text */}
+                <span className="relative z-10 transition-all duration-800 ease-[cubic-bezier(0.23,1,0.32,1)] -translate-x-3 group-hover:translate-x-3">
+                  Get Started
+                </span>
+                {/* Animated Circle */}
+                <span
+                  className="
+            circle absolute top-1/2 left-1/2 w-5 h-5 bg-[#d24ce1] rounded-full opacity-0
+            -translate-x-1/2 -translate-y-1/2
+            transition-all duration-800 ease-[cubic-bezier(0.23,1,0.32,1)]
+            group-hover:w-[220px] group-hover:h-[220px] group-hover:opacity-100
+            z-0
+          "
+                />
+                {/* Right Arrow */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="arr-1 absolute right-4 w-6 fill-black z-10 transition-all duration-800 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:right-[-25%]"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+                </svg>
+              </button>
+            </div>
 
             {/* Mobile Menu Button */}
             <IconButton
