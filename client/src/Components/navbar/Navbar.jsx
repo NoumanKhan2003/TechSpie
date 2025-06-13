@@ -27,8 +27,8 @@ import {
   HomeRepairService as ServicesIcon,
   PermContactCalendar as ContactIcon,
   Close as CloseIcon,
+  Login as LoginIcon
 } from "@mui/icons-material";
-
 import logo from "../../Assets/techspieLogo.png";
 
 const Navbar = () => {
@@ -83,6 +83,7 @@ const Navbar = () => {
     { text: "Works", icon: <PeopleIcon />, path: "/work" },
     { text: "Team", icon: <PublicIcon />, path: "/team" },
     { text: "Services", icon: <ServicesIcon />, path: "/services" },
+    { text: "Login", icon: <LoginIcon />, path: "/login" },
   ];
 
   const handleScrollToContact = (event) => {

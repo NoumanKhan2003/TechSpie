@@ -9,6 +9,7 @@ import Service from "./Pages/ServicePage.jsx";
 import Team from "./Pages/TeamPage.jsx";
 import ContactUsPage from "./Pages/ContactUsPage.jsx";
 import WorkPage from "./Pages/WorkPage.jsx";
+import LoginPage from "./Pages/LoginPage.jsx";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/team" element={<Team />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/work" element={<WorkPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
     </>
