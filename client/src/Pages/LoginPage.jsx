@@ -1,8 +1,24 @@
 import React, { useState } from "react";
-
+import { useGoogleLogin } from "@react-oauth/google";
 const LoginPage = () => {
   const [remember, setRemember] = useState(false);
 
+  //Google OAuth login handler
+  const responseGoogle = async (authResult) => {
+    try {
+      if (authResult["code"]) {
+       
+        console.log("Google Auth Code:", authResult["code"]);
+      }
+    } catch (error) {
+      alert("Login failed: " + error.message);
+    }
+  };
+  const googleLogin = useGoogleLogin({
+    onSuccess: responseGoogle,
+    onError: responseGoogle,
+    flow: "auth-code",
+  });
   return (
     <div className="pt-30 pb-10 flex items-center justify-center min-h-screen bg-gray-100">
       <form className="flex flex-col gap-2.5 bg-white p-6 sm:p-8 w-full max-w-md rounded-2xl font-sans shadow-md">
@@ -78,7 +94,14 @@ const LoginPage = () => {
           Or With
         </p>
         <div className="flex flex-row gap-2.5">
-          <button className="btn google flex-1 h-12 rounded-xl flex justify-center items-center font-medium gap-2.5 border border-gray-200 bg-white cursor-pointer transition-colors duration-200 hover:border-violet-600">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault(); 
+              googleLogin();
+            }}
+            className="btn google flex-1 h-12 rounded-xl flex justify-center items-center font-medium gap-2.5 border border-gray-200 bg-white cursor-pointer transition-colors duration-200 hover:border-violet-600"
+          >
             <svg
               xmlSpace="preserve"
               style={{ enableBackground: "new 0 0 512 512" }}
@@ -116,7 +139,7 @@ const LoginPage = () => {
                 style={{ fill: "#F14336" }}
               />
             </svg>
-            Google
+            Google Login
           </button>
         </div>
       </form>

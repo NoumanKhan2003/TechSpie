@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./Components/navbar/Navbar.jsx";
 import HomePage from "./Pages/HomePage.jsx";
 import AboutUs from "./Pages/AboutPage.jsx";
@@ -10,8 +10,15 @@ import Team from "./Pages/TeamPage.jsx";
 import ContactUsPage from "./Pages/ContactUsPage.jsx";
 import WorkPage from "./Pages/WorkPage.jsx";
 import LoginPage from "./Pages/LoginPage.jsx";
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
 function App() {
+  const GoogleAuthWrapper = () => {
+    return (
+      <GoogleOAuthProvider clientId={`${import.meta.env.VITE_GOOGLE_CLIENT_ID}`}>
+        <LoginPage></LoginPage>
+      </GoogleOAuthProvider>
+    );
+  };
   return (
     <>
       <Navbar />
@@ -23,7 +30,7 @@ function App() {
         <Route path="/team" element={<Team />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/work" element={<WorkPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<GoogleAuthWrapper />} />
       </Routes>
       <Footer />
     </>
