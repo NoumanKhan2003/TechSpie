@@ -2,7 +2,7 @@ import express from "express";
 
 const pingRoute = express.Router();
 
-pingRoute.get("/", (req, res) => {
+pingRoute.get("/", (_, res) => {
     res.send("Pong!");
 });
 

@@ -1,14 +1,28 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useGoogleLogin } from "@react-oauth/google";
+import { useNavigate } from "react-router-dom";
+
 const LoginPage = () => {
   const [remember, setRemember] = useState(false);
+  const navigate = useNavigate();
 
   //Google OAuth login handler
   const responseGoogle = async (authResult) => {
     try {
       if (authResult["code"]) {
-       
-        console.log("Google Auth Code:", authResult["code"]);
+        const result = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/auth/googleLogin?code=${
+            authResult["code"]
+          }`
+        );
+        const { email, name, profileImage } = result.data.user;
+        const token = result.data.token;
+        localStorage.setItem("name", name);
+        localStorage.setItem("email", email);
+        localStorage.setItem("token", token);
+
+        navigate("/");
       }
     } catch (error) {
       alert("Login failed: " + error.message);
@@ -97,7 +111,7 @@ const LoginPage = () => {
           <button
             type="button"
             onClick={(e) => {
-              e.preventDefault(); 
+              e.preventDefault();
               googleLogin();
             }}
             className="btn google flex-1 h-12 rounded-xl flex justify-center items-center font-medium gap-2.5 border border-gray-200 bg-white cursor-pointer transition-colors duration-200 hover:border-violet-600"

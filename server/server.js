@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
 import pingRoute from "./Routes/pingRoute.js";
+import authRoute from "./Routes/authRoute.js";
 
 
 const app = express();
@@ -23,4 +24,5 @@ mongoose
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/',pingRoute);
+app.use('/auth',authRoute);
 app.listen(process.env.PORT || 3000);
