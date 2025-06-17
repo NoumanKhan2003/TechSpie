@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import Home from "../Components/home/Home";
-import Services from "../Components/home/Services";
 import WhyChooseUs from "../Components/home/Choose";
 import Team from "../Components/home/Team";
 import OurApproach from "../Components/home/Approach";
@@ -52,10 +50,6 @@ const HomePage = () => {
       <div className="space-y-0 relative">
         <div>
           <Home />
-        </div>
-
-        <div>
-          <Services />
         </div>
 
         <div>
