@@ -4,12 +4,12 @@ import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 import { Link as RouterLink } from "react-router-dom";
 const stats = [
   {
-    label: "Active Users",
-    value: "10M+",
+    label: "Clients Served",
+    value: "5+",
   },
   {
-    label: "Uptime",
-    value: "99.9%",
+    label: "Projects Delivered",
+    value: "4+",
   },
   {
     label: "Support",
@@ -32,8 +32,8 @@ const Home = () => {
             {/* Animated Background Elements */}
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-              <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-bounce"></div>
-              <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-ping"></div>
+              <div className="absolute top-20 right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+              {/* <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-ping"></div> */}
             </div>
 
             {/* Main Content Container */}
@@ -85,7 +85,7 @@ const Home = () => {
                     style={{ transformStyle: "preserve-3d" }}
                   >
                     <span className="relative z-10">
-                      Get Started <ArrowOutwardOutlinedIcon sx={{ ml: 1 }} />{" "}
+                       Start a Project <ArrowOutwardOutlinedIcon sx={{ ml: 1 }} />{" "}
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </button>
