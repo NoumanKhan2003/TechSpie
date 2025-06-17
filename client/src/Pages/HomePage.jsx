@@ -6,6 +6,7 @@ import WhyChooseUs from "../Components/home/Choose";
 import Team from "../Components/home/Team";
 import OurApproach from "../Components/home/Approach";
 import ContactForm from "../Components/home/Form";
+import WhoWeAre from "../Components/home/WhoWeAre";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,7 +41,7 @@ const HomePage = () => {
       });
     });
   }, []);
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -52,6 +53,10 @@ const HomePage = () => {
           <Home />
         </div>
 
+        <div>
+          <WhoWeAre />
+        </div>
+        
         <div>
           <WhyChooseUs />
         </div>
