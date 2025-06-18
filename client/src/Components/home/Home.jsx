@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <>
       <main className="min-h-screen flex items-center pt-10 relative">
-        <div className="outer-container w-full py-8">
+        <div className="outer-container w-full pt-8 pb-8">
           <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-100 via-purple-50 to-white text-purple-600">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 pointer-events-none">
