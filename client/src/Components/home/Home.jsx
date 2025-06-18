@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <>
       <main className="min-h-screen flex items-center pt-10 relative">
-        <div className="outer-container w-full pt-8 pb-8">
+        <div className="outer-container w-full mt-10">
           <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-100 via-purple-50 to-white text-purple-600">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 pointer-events-none">
@@ -104,14 +104,14 @@ const Home = () => {
               </div>
 
               {/* Stats Section */}
-              <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="mt-16 pb-7 grid grid-cols-1 md:grid-cols-3 gap-8">
                 {stats.map((stat, idx) => (
                   <div
                     key={idx}
                     className="text-center transition-transform duration-500 hover:scale-105"
                     style={{ transformStyle: "preserve-3d" }}
                   >
-                    <div className="text-3xl md:text-4xl font-bold mb-2 animate-bounce text-purple-600">
+                    <div className="text-3xl md:text-4xl font-bold  animate-bounce text-purple-600">
                       {stat.value}
                     </div>
                     <div className="text-purple-400">{stat.label}</div>

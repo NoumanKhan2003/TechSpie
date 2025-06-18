@@ -1,28 +1,27 @@
 import React from "react";
-import { Container, Box } from "@mui/material";
 
 const WhoWeAre = () => {
   return (
     <>
-      <section className="relative pt-10 pb-20 px-4 overflow-hidden bg-gradient-to-br from-purple-100 via-white to-blue-100">
+      <section className="relative pb-20 px-4 overflow-hidden bg-gradient-to-br from-purple-100 via-white to-blue-100">
         
       <div className="relative max-w-6xl mx-auto ">
         <div className="text-center mb-8">{}</div>
         <div className="relative">
           
           <div className=" text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-700 mb-4 leading-tight">
-              Who We Are ?
+            <h1 className="text-5xl md:text-7xl font-extrabold text-gray-700 mb-4 leading-tight">
+              Who We Are 
             </h1>
 
             <div className="mb-2">
-              <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent font-noto-serif">
                 We are Techspie
               </span>
-              <span className="text-lg md:text-xl text-gray-800 ml-2">— your vision, our responsibility.</span>
+              <span className="text-lg md:text-2xl text-gray-800 ml-2">— your vision, our responsibility.</span>
             </div>
 
-            <p className="text-base md:text-lg text-gray-800 leading-normal max-w-4xl mx-auto mb-2">
+            <p className="text-base md:text-2xl text-gray-800 leading-normal max-w-4xl mx-auto mb-2">
               We transform ideas into companies, companies into brands, and brands into unstoppable forces
             </p>
 
