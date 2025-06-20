@@ -9,6 +9,7 @@ import ContactForm from "../Components/home/Form";
 import WhoWeAre from "../Components/home/WhoWeAre";
 import FloatingClients from "../Components/home/FloatingClients";
 import Work from "../Components/home/Work";
+import LetsWorkTogether from "../Components/home/WorkTogether";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,6 +72,10 @@ const HomePage = () => {
           <OurApproach />
         </div>
 
+        <div>
+          <LetsWorkTogether />
+        </div>
+        
         <div>
           <ContactForm />
         </div>
