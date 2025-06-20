@@ -155,10 +155,30 @@ const Footer = () => {
   );
 
   const socialLinks = [
-    { icon: <Facebook />, color: "#4267B2", label: "Facebook" },
-    { icon: <Twitter />, color: "#1DA1F2", label: "Twitter" },
-    { icon: <LinkedIn />, color: "#0A66C2", label: "LinkedIn" },
-    { icon: <Instagram />, color: "#E4405F", label: "Instagram" },
+    {
+      icon: <Facebook />,
+      color: "#4267B2",
+      label: "Facebook",
+      links: "https://www.facebook.com/techspie",
+    },
+    {
+      icon: <Twitter />,
+      color: "#1DA1F2",
+      label: "Twitter",
+      links: "https://twitter.com/techspie",
+    },
+    {
+      icon: <LinkedIn />,
+      color: "#0A66C2",
+      label: "LinkedIn",
+      links: "https://www.linkedin.com/company/techspie",
+    },
+    {
+      icon: <Instagram />,
+      color: "#E4405F",
+      label: "Instagram",
+      links: "https://www.instagram.com/techspie",
+    },
   ];
 
   const linkStyle = {
@@ -238,7 +258,7 @@ const Footer = () => {
               sx={{
                 height: { md: "6rem", xs: "6rem" },
                 width: { md: "7rem", xs: "7rem" },
-                ml:{md:5,xs:0},
+                ml: { md: 5, xs: 0 },
                 transition: "all 0.3s ease",
                 "&:hover": { transform: "translateY(-5px)" },
               }}
@@ -246,7 +266,7 @@ const Footer = () => {
               <img
                 src={logo}
                 alt="TechSpie"
-                style={{ height: "100%", width: "100%", }}
+                style={{ height: "100%", width: "100%" }}
               />
             </Box>
           </Box>
@@ -264,7 +284,14 @@ const Footer = () => {
               textAlign: { xs: "center", sm: "left" },
             }}
           >
-            <Box sx={{ flex: 1, p: 0, display: "flex", justifyContent: { xs: "center", sm: "flex-start" } }}>
+            <Box
+              sx={{
+                flex: 1,
+                p: 0,
+                display: "flex",
+                justifyContent: { xs: "center", sm: "flex-start" },
+              }}
+            >
               {contactItem(
                 <Email sx={{ color: "#a78bfa", fontSize: "1.3rem" }} />,
                 "Email Us",
@@ -273,7 +300,14 @@ const Footer = () => {
                 "rgba(139, 92, 246, 0.1)"
               )}
             </Box>
-            <Box sx={{ flex: 1, p: 0, display: "flex", justifyContent: { xs: "center", sm: "flex-start" } }}>
+            <Box
+              sx={{
+                flex: 1,
+                p: 0,
+                display: "flex",
+                justifyContent: { xs: "center", sm: "flex-start" },
+              }}
+            >
               {contactItem(
                 <Phone sx={{ color: "#818cf8", fontSize: "1.3rem" }} />,
                 "Call Us",
@@ -282,7 +316,14 @@ const Footer = () => {
                 "rgba(99, 102, 241, 0.1)"
               )}
             </Box>
-            <Box sx={{ flex: 1, p: 0, display: "flex", justifyContent: { xs: "center", sm: "flex-start" } }}>
+            <Box
+              sx={{
+                flex: 1,
+                p: 0,
+                display: "flex",
+                justifyContent: { xs: "center", sm: "flex-start" },
+              }}
+            >
               {contactItem(
                 <LocationOn sx={{ color: "#60a5fa", fontSize: "1.3rem" }} />,
                 "Location",
@@ -332,8 +373,9 @@ const Footer = () => {
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              TechSpie delivers innovative software solutions with cutting-edge technologies
-              to help businesses scale efficiently and effectively in today's digital landscape.
+              TechSpie delivers innovative software solutions with cutting-edge
+              technologies to help businesses scale efficiently and effectively
+              in today's digital landscape.
             </Typography>
 
             <Box
@@ -362,7 +404,9 @@ const Footer = () => {
                     },
                   }}
                 >
-                  {social.icon}
+                  <Link href={social.links} sx={{ color: "inherit" }}>
+                    {social.icon}
+                  </Link>
                 </IconButton>
               ))}
             </Box>
@@ -412,10 +456,11 @@ const Footer = () => {
               "linear-gradient(90deg, #6366f1 0%, #3b82f6 100%)"
             )}
             <Stack direction="column" spacing={2} sx={linkStyle}>
-              <Link href="/services">Media Relations</Link>
-              <Link href="/services">Content Creation</Link>
-              <Link href="/services">Crisis Management</Link>
-              <Link href="/services">Digital PR</Link>
+              <Link href="/services">Web-Design</Link>
+              <Link href="/services">Web-Development</Link>
+              <Link href="/services">App-Development</Link>
+              <Link href="/services">SEO Service</Link>
+              <Link href="/services">Maintainance</Link>
             </Stack>
           </Box>
 
@@ -438,7 +483,8 @@ const Footer = () => {
               <Link href="/">Home</Link>
               <Link href="/about">About Us</Link>
               <Link href="/services">Services</Link>
-              <Link href="/contact">Contact</Link>
+              <Link href="/work">Work</Link>
+              <Link href="/team">Team</Link>
             </Stack>
           </Box>
         </Box>
@@ -467,7 +513,7 @@ const Footer = () => {
           >
             © {currentYear}{" "}
             <span style={{ fontWeight: 600, color: "#1e293b" }}>
-             <RouterLink to="/team" >Techspie</RouterLink> 
+              <RouterLink to="/team">Techspie</RouterLink>
             </span>
             . All rights reserved.
           </Typography>
