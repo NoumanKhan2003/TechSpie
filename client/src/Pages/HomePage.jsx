@@ -61,14 +61,6 @@ const HomePage = () => {
         <div>
           <FloatingClients/>
         </div>
-        
-        <div>
-          <WhyChooseUs />
-        </div>
-
-        <div>
-          <Team />
-        </div>
 
         <div>
           <OurApproach />
