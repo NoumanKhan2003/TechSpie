@@ -9,15 +9,23 @@ const clients = [
 
 const FloatingClients = () => {
   return (
-    <div className="w-full overflow-hidden py-3 relative bg-white">
-      <div className="flex animate-marquee whitespace-nowrap">
+    <div className="w-full overflow-hidden py-3 relative bg-transparent">
+      <div className="flex animate-floating-marquee whitespace-nowrap">
 
         {/* First set */}
         {clients.map((client, idx) => (
           <span
             key={`first-${idx}`}
-            className="inline-block text-9xl font-bold text-purple-950 font-abril"
-            style={{ minWidth: 'max-content', marginRight: '130px' }}
+            className="inline-block font-bold text-purple-950 font-abril
+              text-5xl md:text-9xl"
+            style={{
+              minWidth: 'max-content',
+              marginRight: '39px', // base
+              // Responsive marginRight
+              ...(window.innerWidth >= 640 && { marginRight: '48px' }),
+              ...(window.innerWidth >= 1024 && { marginRight: '80px' }),
+              ...(window.innerWidth >= 1280 && { marginRight: '130px' }),
+            }}
           >
             {client.name}
           </span>
@@ -27,8 +35,15 @@ const FloatingClients = () => {
         {clients.map((client, idx) => (
           <span
             key={`second-${idx}`}
-            className="inline-block text-9xl font-bold text-purple-950 font-abril"
-            style={{ minWidth: 'max-content', marginRight: '130px' }}
+            className="inline-block font-bold text-purple-950 font-abril
+              text-5xl md:text-9xl"
+            style={{
+              minWidth: 'max-content',
+              marginRight: '39px',
+              ...(window.innerWidth >= 640 && { marginRight: '48px' }),
+              ...(window.innerWidth >= 1024 && { marginRight: '80px' }),
+              ...(window.innerWidth >= 1280 && { marginRight: '130px' }),
+            }}
           >
             {client.name}
           </span>
@@ -36,7 +51,7 @@ const FloatingClients = () => {
       </div>
       <style>
         {`
-          @keyframes marquee {
+          @keyframes floating-marquee {
             0% {
               transform: translateX(0%);
             }
@@ -44,8 +59,8 @@ const FloatingClients = () => {
               transform: translateX(-50%);
             }
           }
-          .animate-marquee {
-            animation: marquee 13s linear infinite;
+          .animate-floating-marquee {
+            animation: floating-marquee 17s linear infinite;
             display: flex;
             width: fit-content;
           }
@@ -55,4 +70,4 @@ const FloatingClients = () => {
   )
 }
 
-export default FloatingClients
+export default FloatingClients;
