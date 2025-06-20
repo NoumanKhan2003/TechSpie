@@ -6,7 +6,7 @@ import { FiNavigation } from "react-icons/fi";
 import { FaArrowRight } from "react-icons/fa";
 import { useGSAP } from "@gsap/react";
 import { gsap, ScrollTrigger } from "../../utils/gsapUtils.js";
-
+import { useNavigate } from "react-router-dom";
 const steps = [
   {
     title: "Discovery",
@@ -63,6 +63,7 @@ const steps = [
 ];
 
 const OurApproach = () => {
+  const navigate = useNavigate();
   const sectionRef = useRef(null);
   const processLineRef = useRef(null);
   const textRef = useRef(null);
@@ -232,14 +233,16 @@ const OurApproach = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <a
-            href="#contact"
-            className="inline-flex items-center px-6 py-3 bg-purple-500 text-white font-medium rounded-lg shadow-md hover:bg-purple-600 transition-colors duration-300 hover-lift"
-          >
+        <div
+          className="mt-16 text-center"
+          onClick={() => {
+            navigate("/contact");
+          }}
+        >
+          <button className="inline-flex items-center px-6 py-3 bg-purple-500 text-white font-medium rounded-lg shadow-md hover:bg-purple-600 transition-colors duration-300 hover-lift cursor-pointer">
             Start Your Project
             <FaArrowRight className="ml-2" size={15} />
-          </a>
+          </button>
         </div>
       </div>
     </section>
