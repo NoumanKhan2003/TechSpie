@@ -80,9 +80,9 @@ const Navbar = () => {
   const menuItems = [
     { text: "Home", icon: <HomeIcon />, path: "/" },
     { text: "About", icon: <InfoIcon />, path: "/about" },
+    { text: "Services", icon: <ServicesIcon />, path: "/services" },
     { text: "Works", icon: <PeopleIcon />, path: "/work" },
     { text: "Team", icon: <PublicIcon />, path: "/team" },
-    { text: "Services", icon: <ServicesIcon />, path: "/services" },
     { text: "Login", icon: <LoginIcon />, path: "/login" },
   ];
 
@@ -258,7 +258,7 @@ const Navbar = () => {
               <ContactIcon />
             </ListItemIcon>
             <ListItemText
-              primary="Get started"
+              primary="Start a Project"
               sx={{
                 "& .MuiListItemText-primary": {
                   fontWeight: "bold",
@@ -366,7 +366,7 @@ const Navbar = () => {
                 </svg>
                 {/* Text */}
                 <span className="relative z-10 transition-all duration-800 ease-[cubic-bezier(0.23,1,0.32,1)] -translate-x-3 group-hover:translate-x-3">
-                  Get Started
+                  Start a Project
                 </span>
                 {/* Animated Circle */}
                 <span
