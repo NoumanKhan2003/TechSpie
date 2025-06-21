@@ -51,7 +51,7 @@ const TechnologiesSection = () => {
     const techTl = gsap.timeline({
       scrollTrigger: {
         trigger: techStackRef.current,
-        start: "top 80%",
+        start: "top 90%",
         toggleActions: "play none none reset",
       },
       onComplete: applyFloatingAnimations, // Apply floating animations after initial animation
@@ -177,10 +177,10 @@ const TechnologiesSection = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-gradient-to-b from-white to-blue-50">
+    <section className="py-2 bg-gradient-to-b from-white to-blue-50">
       <h2
         ref={techTitleRef}
-        className="text-3xl md:text-6xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 bg-clip-text text-transparent leading-snug"
+        className="text-3xl md:text-6xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 bg-clip-text text-transparent leading-snug font-noto-serif"
       >
         Technologies We Use
       </h2>
