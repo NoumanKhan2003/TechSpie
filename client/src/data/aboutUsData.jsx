@@ -8,7 +8,17 @@ import {
   FaLaptopCode,
   FaRocket,
 } from "react-icons/fa";
-import { SiMongodb, SiTailwindcss, SiFigma } from "react-icons/si";
+import {
+  SiMongodb,
+  SiTailwindcss,
+  SiFigma,
+  SiFlutter,
+  SiKotlin,
+  SiFirebase,
+  SiGoogleclassroom,
+  SiGooglecloud,
+} from "react-icons/si";
+import { TbBrandReactNative } from "react-icons/tb";
 
 const ourProcess = [
   {
@@ -67,7 +77,7 @@ const ourProcess = [
 
 const techStack = [
   {
-    name: "React",
+    name: "React.Js",
     icon: <FaReact className="text-4xl" />,
   },
   {
@@ -75,8 +85,32 @@ const techStack = [
     icon: <FaNodeJs className="text-4xl" />,
   },
   {
+    name: "Express.js",
+    icon: <FaLaptopCode className="text-4xl" />,
+  },
+  {
     name: "MongoDB",
     icon: <SiMongodb className="text-4xl" />,
+  },
+  {
+    name: "React Native",
+    icon: <TbBrandReactNative className="text-4xl" />,
+  },
+  {
+    name: "Flutter",
+    icon: <SiFlutter className="text-4xl" />,
+  },
+  {
+    name: "Kotlin",
+    icon: <SiKotlin className="text-4xl" />,
+  },
+  {
+    name: "Firebase",
+    icon: <SiFirebase className="text-4xl" />,
+  },
+  {
+    name: "Google Cloud",
+    icon: <SiGooglecloud className="text-4xl" />,
   },
   {
     name: "Tailwind CSS",

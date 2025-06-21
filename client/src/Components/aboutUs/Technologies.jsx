@@ -180,7 +180,7 @@ const TechnologiesSection = () => {
     <section className="py-16 bg-gradient-to-b from-white to-blue-50">
       <h2
         ref={techTitleRef}
-        className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 bg-clip-text text-transparent"
+        className="text-3xl md:text-6xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 bg-clip-text text-transparent leading-snug"
       >
         Technologies We Use
       </h2>
@@ -191,11 +191,11 @@ const TechnologiesSection = () => {
         {techStack.map((tech) => (
           <div
             key={tech.name}
-            className="tech-card p-6 rounded-xl text-gray-700 font-semibold bg-gradient-to-br from-white to-blue-50 transition-all duration-300 flex flex-col items-center gap-3 min-w-[140px] shadow-md border border-blue-100 overflow-hidden cursor-pointer"
+            className="tech-card p-6 rounded-2xl text-gray-700 font-semibold bg-gradient-to-br from-white to-blue-50 transition-all duration-300 flex flex-col items-center gap-3 md:min-w-[160px] min-w-[130px] shadow-md border border-blue-100 overflow-hidden cursor-pointer"
           >
             <div
               ref={addToTechIconsRefs}
-              className="icon-container text-indigo-500 text-4xl relative z-10"
+              className="icon-container text-indigo-500 text-8xl relative z-10"
             >
               {tech.icon}
             </div>

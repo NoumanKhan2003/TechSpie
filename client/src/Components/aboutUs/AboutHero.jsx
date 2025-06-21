@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -8,7 +9,7 @@ const AboutHero = () => {
   const heroTitleRef = useRef(null);
   const heroTextRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     setIsVisible(true);
 
@@ -67,7 +68,7 @@ const AboutHero = () => {
                   animation: "fadeFloat 3s ease-in-out infinite",
                 }}
               >
-                Innovating
+                Driven by Innovation
               </span>
               <span
                 className="block bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 bg-clip-text text-transparent py-2"
@@ -75,7 +76,7 @@ const AboutHero = () => {
                   animation: "fadeFloat 3s ease-in-out infinite",
                 }}
               >
-                with Purpose
+                United by Purpose{" "}
               </span>
             </h1>
             <div
@@ -93,35 +94,41 @@ const AboutHero = () => {
             </div>
             <p
               ref={heroTextRef}
-              className={`mt-4 text-lg md:text-xl text-black max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${
+              className={`mt-4 text-lg md:text-2xl text-black max-w-7xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-8 opacity-0"
               }`}
             >
-              We are a team of passionate innovators focused on turning
-              groundbreaking ideas into cutting-edge digital experiences. Learn
-              more about our journey and vision.
+              At Techspie, we are passionate innovators dedicated to creating
+              technology solutions that empower people and organizations to
+              shape a better future. Discover our story, values, and vision.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="mt-3 flex flex-col sm:flex-row gap-4 justify-center ">
               <button
-                className={`group relative px-6 py-3 bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold rounded-lg transition-all duration-1000 delay-700 hover:scale-105 ${
+                className={`group relative px-6 py-3 bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold rounded-lg transition-all duration-1000 delay-700 hover:scale-105 cursor-pointer ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
                 }`}
+                onClick={() => {
+                  navigate("/team");
+                }}
               >
                 <span className="relative z-10">Meet the Team</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
 
               <button
-                className={`group px-6 py-3 border-2 border-purple-300 text-purple-600 font-semibold rounded-lg backdrop-blur-sm hover:border-purple-500 hover:bg-purple-100 transition-all duration-1000 delay-800 hover:scale-105 ${
+                className={`group px-6 py-3 border-2 border-purple-300 text-purple-600 font-semibold rounded-lg backdrop-blur-sm hover:border-purple-500 hover:bg-purple-100 transition-all duration-1000 delay-800 hover:scale-105 cursor-pointer ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
                 }`}
+                onClick={()=>{
+                  navigate("/work");
+                }}
               >
                 <span className="flex items-center justify-center">
                   Explore Projects

@@ -36,33 +36,47 @@ const Mission = () => {
           ref={missionRef}
           className="md:w-1/2 p-6 bg-purple-50 rounded-xl border border-purple-100 shadow-sm"
         >
-          <h2 className="text-3xl font-bold mb-4 text-purple-600">
+          <h3 className="text-2xl mb-4 text-indigo-600 font-bold">
             Our Mission
-          </h2>
-          <p className="text-gray-700">
-            Our mission is to empower businesses by providing cutting-edge
-            software and exceptional service.
-          </p>
+          </h3>
+          <ul className="list-disc list-inside space-y-2 text-gray-700">
+            <li>
+              <strong className="text-purple-600">Inspire Progress: </strong>
+              Drive digital transformation for businesses and individuals.{" "}
+            </li>
+            <li>
+              <strong className="text-purple-600">
+                Lead with Innovation:{" "}
+              </strong>
+              Develop pioneering technology solutions for real-world impact.
+            </li>
+            <li>
+              <strong className="text-purple-600">Empower Growth: </strong>
+              Enable our clients and team to excel in a rapidly changing world.{" "}
+            </li>
+          </ul>
         </div>
         <div
           ref={valuesRef}
           className="md:w-1/2 mt-8 md:mt-0 p-6 bg-indigo-50 rounded-xl border border-indigo-100 shadow-sm"
         >
-          <h3 className="text-2xl font-semibold mb-4 text-indigo-600">
+          <h3 className="text-2xl mb-4 text-indigo-600 font-bold">
             Our Values
           </h3>
           <ul className="list-disc list-inside space-y-2 text-gray-700">
             <li>
-              <strong className="text-purple-600">Innovation</strong>: Embracing
-              new ideas to solve complex problems.
+              <strong className="text-purple-600">Forward Thinking: </strong>
+              Anticipating trends and creating future-ready solutions.{" "}
             </li>
             <li>
-              <strong className="text-purple-600">Integrity</strong>: Building
-              trust through transparency and honesty.
+              <strong className="text-purple-600">Collaboration: </strong>
+              Achieving more together through teamwork and open communication.{" "}
             </li>
             <li>
-              <strong className="text-purple-600">Customer Centricity</strong>:
-              Putting clients first in everything we do.
+              <strong className="text-purple-600">
+                Trust & Transparency:{" "}
+              </strong>
+              Building strong relationships through honesty and accountability.{" "}
             </li>
           </ul>
         </div>
