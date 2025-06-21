@@ -125,13 +125,15 @@ const Process = () => {
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16" ref={processTextRef}>
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+          <h2 className="text-7xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-1 font-noto-serif">
             Our Process
           </h2>
-          <div className="w-24 h-1 bg-purple-400 mx-auto mb-6 mt-4"></div>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-purple-700 mx-auto mb-6 mt-1"></div>
+          <p className="text-xl text-gray-700 max-w-6xl mx-auto">
             We follow a structured yet flexible approach to deliver high-quality
-            software tailored to your goals.
+            software tailored to your goals. From the initial consultation to
+            final deployment, our team collaborates closely with you at every
+            step.
           </p>
         </div>
 
