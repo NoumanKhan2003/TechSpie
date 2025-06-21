@@ -19,10 +19,10 @@ import {
   Email,
   LocationOn,
   Instagram,
+  Mail,
 } from "@mui/icons-material";
-import { Link as RouterLink } from "react-router-dom";
 import logo from "../../Assets/techspieLogo.png";
-
+import { useNavigate } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
@@ -31,6 +31,7 @@ const Footer = () => {
   const logoRef = useRef(null);
   const contactsRef = useRef(null);
   const gridItemsRef = useRef([]);
+  const navigate = useNavigate();
 
   gridItemsRef.current = [];
   const addToRefs = (el) => {
@@ -156,16 +157,16 @@ const Footer = () => {
 
   const socialLinks = [
     {
+      icon: <Mail />,
+      color: "#1DA1F2",
+      label: "Twitter",
+      links: "mailto:info@techspie.com",
+    },
+    {
       icon: <Facebook />,
       color: "#4267B2",
       label: "Facebook",
       links: "https://www.facebook.com/techspie",
-    },
-    {
-      icon: <Twitter />,
-      color: "#1DA1F2",
-      label: "Twitter",
-      links: "https://twitter.com/techspie",
     },
     {
       icon: <LinkedIn />,
@@ -240,9 +241,9 @@ const Footer = () => {
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
             alignItems: "center",
-            py: 2,
+            py: 1,
             borderBottom: "1px solid rgba(100, 116, 139, 0.2)",
-            gap: 3,
+            gap: 1,
           }}
         >
           {/* Logo */}
@@ -295,8 +296,8 @@ const Footer = () => {
               {contactItem(
                 <Email sx={{ color: "#a78bfa", fontSize: "1.3rem" }} />,
                 "Email Us",
-                "nouman@khan.in",
-                "mailto:nouman@khan.in",
+                "info@techspie.com",
+                "mailto:info@techspie.com",
                 "rgba(139, 92, 246, 0.1)"
               )}
             </Box>
@@ -367,13 +368,13 @@ const Footer = () => {
               variant="body2"
               sx={{
                 color: "#64748b",
-                fontSize: "0.95rem",
+                fontSize: "1rem",
                 mb: 2,
-                lineHeight: 1.6,
+                lineHeight: 1.2,
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              TechSpie delivers innovative software solutions with cutting-edge
+              Techspie delivers innovative software solutions with cutting-edge
               technologies to help businesses scale efficiently and effectively
               in today's digital landscape.
             </Typography>
@@ -383,7 +384,7 @@ const Footer = () => {
                 display: "flex",
                 gap: 2,
                 justifyContent: { xs: "center", md: "flex-start" },
-                mb: 2,
+                mb: 1,
               }}
             >
               {socialLinks.map((social) => (
@@ -410,33 +411,6 @@ const Footer = () => {
                 </IconButton>
               ))}
             </Box>
-
-            <Box
-              sx={{
-                color: "#64748b",
-                fontSize: "0.9rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: { xs: "center", md: "flex-start" },
-              }}
-            >
-              <Email
-                fontSize="small"
-                sx={{ mr: 1, fontSize: "1rem", color: "#8b5cf6" }}
-              />
-              <Typography
-                component={Link}
-                href="mailto:sanya@columninches.in"
-                sx={{
-                  color: "#64748b",
-                  textDecoration: "none",
-                  transition: "color 0.2s",
-                  "&:hover": { color: "#8b5cf6" },
-                }}
-              >
-                sanya@columninches.in
-              </Typography>
-            </Box>
           </Box>
 
           {/* Our Services */}
@@ -455,7 +429,7 @@ const Footer = () => {
               "Our Services",
               "linear-gradient(90deg, #6366f1 0%, #3b82f6 100%)"
             )}
-            <Stack direction="column" spacing={2} sx={linkStyle}>
+            <Stack direction="column" spacing={0.5} sx={linkStyle}>
               <Link href="/services">Web-Design</Link>
               <Link href="/services">Web-Development</Link>
               <Link href="/services">App-Development</Link>
@@ -479,7 +453,7 @@ const Footer = () => {
               "Quick Links",
               "linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%)"
             )}
-            <Stack direction="column" spacing={2} sx={linkStyle}>
+            <Stack direction="column" spacing={0.5} sx={linkStyle}>
               <Link href="/">Home</Link>
               <Link href="/about">About Us</Link>
               <Link href="/services">Services</Link>
@@ -493,7 +467,6 @@ const Footer = () => {
         <Box
           sx={{
             borderTop: "1px solid rgba(100, 116, 139, 0.2)",
-            mt: 1,
             py: 2,
             textAlign: "center",
           }}
@@ -513,7 +486,12 @@ const Footer = () => {
           >
             © {currentYear}{" "}
             <span style={{ fontWeight: 600, color: "#1e293b" }}>
-              <RouterLink to="/team">Techspie</RouterLink>
+              <Link
+                href="https://www.linkedin.com/company/techspie"
+                target="_blank"
+              >
+                Techspie
+              </Link>
             </span>
             . All rights reserved.
           </Typography>
