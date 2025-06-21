@@ -32,7 +32,7 @@ const CallToAction = ({ title, description, buttonText, buttonLink }) => {
   return (
     <section
       ref={ctaRef}
-      className="py-16 my-12 rounded-2xl overflow-hidden relative bg-gradient-to-r from-purple-600 to-indigo-600"
+      className="py-10 my-12 rounded-4xl overflow-hidden relative bg-gradient-to-r from-purple-600 to-indigo-600"
     >
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
@@ -44,10 +44,10 @@ const CallToAction = ({ title, description, buttonText, buttonLink }) => {
         ref={contentRef}
         className="max-w-4xl mx-auto text-center px-6 relative z-10"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
           {title}
         </h2>
-        <p className="text-lg text-purple-100 mb-8 max-w-2xl mx-auto">
+        <p className="text-lg text-purple-100 mb-8 max-w-3xl mx-auto">
           {description}
         </p>
         <Link

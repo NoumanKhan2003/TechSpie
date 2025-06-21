@@ -17,8 +17,8 @@ function AboutUs() {
       <Process />
       <CallToAction
         title="Ready to Transform Your Business?"
-        description="Join us on a journey of innovation and excellence. Let's build something amazing together."
-        buttonText="Get Started"
+        description="Partner with Techspie and embark on a journey of innovation and excellence. Together, we can turn your vision into reality and create impactful digital solutions for a brighter future. Let’s build something amazing—starting today."
+        buttonText="Start Your Project"
         buttonLink="/contact"
       />
     </div>
